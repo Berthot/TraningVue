@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div>
+    <h1>Ifrit</h1>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    msg: String,
+
   },
 });
 </script>
