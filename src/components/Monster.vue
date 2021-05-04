@@ -44,7 +44,7 @@ export default defineComponent({
 .monster-gif {
   width: 12%;
   height: 35%;
-  background-color: chartreuse;
+  /*background-color: chartreuse;*/
 
 }
 

@@ -1,8 +1,5 @@
 <template>
-
-  <div id="sidebar" v-if="menu.sideBar">
-    <ToggleSideBar @click="toggleMenu('sideBar')"/>
-
+  <div id="sidebar">
     <nav>
       <div class="sidebar-content">
         <div class="sidebar-header">
@@ -42,23 +39,14 @@
       </div>
     </nav>
   </div>
-
-  <div v-else>
-    <ToggleSideBar @click="toggleMenu('sideBar')"/>
-    <nav>
-
-    </nav>
-  </div>
 </template>
-
 
 <script lang="ts">
 import {defineComponent} from 'vue';
 import Icon from "@/components/SideBar/Icon.vue";
-import ToggleSideBar from "@/components/ToggleSideBar.vue";
 
 export default defineComponent({
-  components: {ToggleSideBar, Icon},
+  components: {Icon},
   data() {
     return {
       toolOpen: false,
@@ -66,7 +54,6 @@ export default defineComponent({
       menu: {
         "tool": false,
         "database": false,
-        "sideBar": true
       } as Record<string, boolean>
     }
   },
