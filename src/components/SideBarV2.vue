@@ -1,183 +1,165 @@
 <template>
-  <div class="wrapper">
-
-    <nav id="sidebar">
+  <div id="sidebar">
+    <nav>
       <div class="sidebar-header">
-        <h3>Bootstrap Sidebar</h3>
-        <strong>BS</strong>
+        <h3>RagnaLib</h3>
       </div>
-
-      <ul class="list-unstyled components">
-        <li class="active">
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-            <i class="fas fa-home"></i>
-            Home
-          </a>
-          <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li>
-              <a href="#">Home 1</a>
-            </li>
-            <li>
-              <a href="#">Home 2</a>
-            </li>
-            <li>
-              <a href="#">Home 3</a>
+      <ul>
+        <li v-for="sideBarItem in SideBarItems" :key="sideBarItem.name" >
+          <span @click="toggleDropDown(sideBarItem)">
+              <router-link v-bind:to="sideBarItem.routerName">{{ sideBarItem.name }}
+                <Icon v-if="sideBarItem.hasDropDown" icon-name="caret-down" class="dropdown-icon"/>
+              </router-link>
+          </span>
+          <ul v-if="sideBarItem.subItems.length !== 0 && sideBarItem.dropdown">
+            <li v-for="subItem in sideBarItem.subItems" :key="subItem.name">
+              <router-link v-bind:to="subItem.routerName">{{ subItem.name }}</router-link>
             </li>
           </ul>
         </li>
       </ul>
     </nav>
-    <div id="content">
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-
-          <button type="button" id="sidebarCollapse" class="btn btn-info">
-            <i class="fas fa-align-left"></i>
-            <span>Toggle Sidebar</span>
-          </button>
-        </div>
-      </nav>
-    </div>
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import {SideBarItems, SideBarSubItems} from "@/Structs/SideBarItems";
+import Icon from "@/components/SideBar/Icon.vue";
+
 
 export default defineComponent({
+  components: {Icon},
   name: "SideBarV2",
-  methods: {
+  data() {
+    return {
+      SideBarItems: [
+        {
+          name: "Home",
+          dropdown: false,
+          routerName: "/",
+          hasDropDown: false,
+          subItems: [],
+        } as SideBarItems,
+        {
+          name: "Database",
+          dropdown: false,
+          hasDropDown: true,
+          routerName: "",
+          subItems: [
+            {
+              name: "Monsters",
+              routerName: "/database/Monster",
+            } as SideBarSubItems,
+            {
+              name: "Items",
+              routerName: "/database/Item",
+            } as SideBarSubItems
+          ]
+        } as SideBarItems,
+        {
+          name: "Tool",
+          dropdown: false,
+          hasDropDown: true,
+          routerName: "",
+          subItems: [
+            {
+              name: "MVP Timer",
+              routerName: "/tool/mvp-timer",
+            } as SideBarSubItems,
+            {
+              name: "Skill Calc",
+              routerName: "/tool/skill-calc",
+            } as SideBarSubItems,
 
-  }
+          ]
+        } as SideBarItems,
+        {
+          name: "Contact",
+          dropdown: false,
+          routerName: "/contact",
+          hasDropDown: false,
+          subItems: [],
+        } as SideBarItems,
+      ] as SideBarItems[]
+    }
+  },
+  methods: {
+    toggleDropDown(option: SideBarItems): void {
+      option.dropdown = !option.dropdown
+    }
+  },
 })
 
-// $(document).ready(function () {
-//
-//   $('#sidebarCollapse').on('click', function () {
-//     $('#sidebar').toggleClass('active');
-//   });
-//
-// });
 </script>
 
 <style scoped>
 
-/* Shrinking the sidebar from 250px to 80px and center aligining its content*/
-#sidebar.active {
-  min-width: 80px;
-  max-width: 80px;
-  text-align: center;
+* {
+  color: white;
 }
 
-/* Toggling the sidebar header content, hide the big heading [h3] and showing the small heading [strong] and vice versa*/
-#sidebar .sidebar-header strong {
-  display: none;
+li {
+  list-style-type: none;
 }
 
-#sidebar.active .sidebar-header h3 {
-  display: none;
+
+.dropdown-icon {
+  padding-left: 4px;
 }
 
-#sidebar.active .sidebar-header strong {
+.sidebar-header {
+  font-family: sans-serif;
+  align-content: center;
+  padding-top: 4px;
+  padding-left: 35px;
+}
+
+#sidebar {
+  background: #1e1e1e;
+  color: #fff;
+  transition: all 0.3s;
+  min-width: 220px;
+  max-width: 220px;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+#sidebar ul li a{
+  padding: 5px;
+  font-size: 1.1em;
   display: block;
+  border-left: 3px solid transparent;
+
 }
 
-#sidebar ul li a {
-  text-align: left;
+#sidebar ul li a:hover {
+  border-left-color: cyan;
+  border-left-width: 10px;
+
 }
 
-#sidebar.active ul li a {
-  padding: 20px 10px;
-  text-align: center;
-  font-size: 0.85em;
-}
-
-#sidebar.active ul li a i {
-  margin-right: 0;
-  display: block;
-  font-size: 1.8em;
-  margin-bottom: 5px;
-}
-
-/* Same dropdown links padding*/
-#sidebar.active ul ul a {
-  padding: 10px !important;
-}
-
-/* Changing the arrow position to bottom center position,
-   translateX(50%) works with right: 50%
-   to accurately  center the arrow */
-#sidebar.active .dropdown-toggle::after {
-  top: auto;
-  bottom: 10px;
-  right: 50%;
-  -webkit-transform: translateX(50%);
-  -ms-transform: translateX(50%);
-  transform: translateX(50%);
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 
 @media (max-width: 768px) {
-  /* 80px and its content aligned to centre. Pushing it off the screen with the
-     negative left margin
-  */
-  #sidebar.active {
-    min-width: 80px;
-    max-width: 80px;
-    text-align: center;
-    margin-left: -80px !important;
-  }
-
-
-  /* Reappearing the sidebar on toggle button click */
   #sidebar {
+    margin-left: -250px;
+
+  }
+
+  #sidebar.active {
     margin-left: 0;
-  }
-
-
-  /* Toggling the sidebar header content,
-     hide the big heading [h3] and showing the small heading [strong] and vice versa
-  */
-  #sidebar .sidebar-header strong {
-    display: none;
-  }
-
-  #sidebar.active .sidebar-header h3 {
-    display: none;
-  }
-
-  #sidebar.active .sidebar-header strong {
-    display: block;
-  }
-
-  /* Downsize the navigation links font size */
-  #sidebar.active ul li a {
-    padding: 20px 10px;
-    font-size: 0.85em;
-  }
-
-  #sidebar.active ul li a i {
-    margin-right: 0;
-    display: block;
-    font-size: 1.8em;
-    margin-bottom: 5px;
-  }
-
-  /* Adjust the dropdown links padding*/
-  #sidebar.active ul ul a {
-    padding: 10px !important;
-  }
-
-  /* Changing the arrow position to bottom center position,
-    translateX(50%) works with right: 50%
-    to accurately  center the arrow */
-  .dropdown-toggle::after {
-    top: auto;
-    bottom: 10px;
-    right: 50%;
-    -webkit-transform: translateX(50%);
-    -ms-transform: translateX(50%);
-    transform: translateX(50%);
   }
 }
 

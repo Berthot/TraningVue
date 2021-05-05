@@ -49,8 +49,6 @@ export default defineComponent({
   components: {Icon},
   data() {
     return {
-      toolOpen: false,
-      databaseOpen: false,
       menu: {
         "tool": false,
         "database": false,
@@ -80,6 +78,8 @@ export default defineComponent({
   min-width: 220px;
   max-width: 220px;
   min-height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 /*#sidebar.active {*/

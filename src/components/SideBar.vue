@@ -1,53 +1,12 @@
 <template>
-
-  <div id="sidebar" v-if="menu.sideBar">
+  <div>
     <ToggleSideBar @click="toggleMenu('sideBar')"/>
-
-    <nav>
-      <div class="sidebar-content">
-        <div class="sidebar-header">
-          <h3>RagnaLib</h3>
-        </div>
-
-        <ul class="list-unstyled components">
-          <li>
-            <router-link :to="{ name: 'Home'}">Home</router-link>
-          </li>
-          <li>
-            <a @click="toggleMenu('database')" href="#" class="database-dropdown">Database
-              <Icon icon-name="caret-down"></Icon>
-            </a>
-            <ul v-if="menu.database">
-              <li>
-                <router-link :to="{ name: 'Monster'}">Monster</router-link>
-              </li>
-              <li>
-                <router-link :to="{ name: 'Item'}">Item</router-link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a @click="toggleMenu('tool')" href="#" class="database-dropdown">Tool
-              <Icon icon-name="caret-down"></Icon>
-            </a>
-            <ul v-if="menu.tool">
-              <li>
-                <router-link :to="{ name: 'MvpTimer'}">Mvp-Timer</router-link>
-              </li>
-            </ul>
-          </li>
-          <li>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <SideBarExpand v-if="menu.sideBar"/>
+    <SideBarRetract v-else/>
   </div>
 
-  <div v-else>
-    <ToggleSideBar @click="toggleMenu('sideBar')"/>
-    <nav>
+  <div>
 
-    </nav>
   </div>
 </template>
 
@@ -56,13 +15,13 @@
 import {defineComponent} from 'vue';
 import Icon from "@/components/SideBar/Icon.vue";
 import ToggleSideBar from "@/components/ToggleSideBar.vue";
+import SideBarExpand from "@/components/SideBar/SideBarExpand.vue";
+import SideBarRetract from "@/components/SideBar/SideBarRetract.vue";
 
 export default defineComponent({
-  components: {ToggleSideBar, Icon},
+  components: {SideBarRetract, SideBarExpand, ToggleSideBar},
   data() {
     return {
-      toolOpen: false,
-      databaseOpen: false,
       menu: {
         "tool": false,
         "database": false,
