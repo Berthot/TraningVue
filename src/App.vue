@@ -33,12 +33,16 @@ export default defineComponent({
   display: flex;
   width: 100%;
   align-items: stretch;
+  /*background-color: #B6C4EE;*/
+
 }
 
 .bg{
   display: flex;
   flex-grow: 1;
   height: 100vh;
+  /*background-color: red;*/
+
 }
 
 body{
@@ -50,6 +54,7 @@ main {
   height: 100%;
   width: 100%;
   border: 0;
+  /*background-color: #B6C4EE;*/
   /*margin: 0.6rem 1.3rem;*/
 
 }
