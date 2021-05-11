@@ -1,89 +1,29 @@
 <template>
-  <div id="wrapper">
-
-    <div class="monster-name">
-      <h1>{{ Name }}</h1>
-      <div class="monster-id">
-        <h1>{{ Id }}</h1>
-      </div>
-    </div>
-    <div class="monster-gif">
-      <img alt="" src="../assets/kiel.gif">
-    </div>
-  </div>
+    <MonsterId :identify="Id" :monsterName="Name"/>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
+import MonsterId from "@/components/MonsterId.vue";
 
 export default defineComponent({
+  components: {MonsterId},
   data() {
     return {
       Name: "KIEL-D-01",
       Id: 1734
     }
   },
+
 });
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-* {
-  box-sizing: border-box;
-  border-radius: 10px;
-
-}
-
-#wrapper {
-  position: absolute;
+#monster-id{
   width: 300px;
   height: 350px;
-  background-color: greenyellow;
 }
-
-.monster-name {
-  position: relative;
-  box-sizing: border-box;
-  height: 70px;
-  background-color: #8D95D7 ;
-  align-items: center;
-  display: flex;
-}
-
-.monster-id{
-  position: relative;
-  width: 85px;
-  height: 45px;
-  align-items: center;
-  background-color: #6C6C95;
-  right: 8px;
-}
-
-.monster-id h1 {
-  position: relative;
-  top: 5px;
-  text-align: center;
-}
-
-.monster-name h1{
-  position: relative;
-  margin: auto;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-  line-height: 35px;
-  /*padding-right: 20px;*/
-
-}
-
-.monster-gif {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 4rem;
-  width: 50%;
-}
-
 
 </style>
