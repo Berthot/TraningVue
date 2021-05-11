@@ -67,12 +67,6 @@ export default defineComponent({
 
 <style scoped>
 
-#sidebar-retracted {
-  min-width: 40px;
-  max-width: 40px;
-  min-height: 100vh;
-
-}
 
 #sidebar {
   min-width: 220px;

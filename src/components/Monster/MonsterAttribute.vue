@@ -1,9 +1,9 @@
 <template>
   <div class="monster-status">
-    <h1>B1</h1>
+    <h1>STATUS</h1>
   </div>
   <div class="monster-attribute">
-    <h1>B2</h1>
+    <h1>ATTRIBUTES</h1>
   </div>
 </template>
 <script lang="ts">

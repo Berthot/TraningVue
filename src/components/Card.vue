@@ -1,5 +1,5 @@
 <template>
-  <div class="card " id="central-card">
+  <div class="card" id="central-card">
     <div class="card-body content">
       <slot>
 
@@ -26,7 +26,6 @@ export default {
 
 #central-card{
   border: none;
-
   width: 100%;
   margin: 0.5rem 0.8rem; /*margem que deixa branco o fund*/
 

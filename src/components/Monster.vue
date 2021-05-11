@@ -1,28 +1,37 @@
 <template>
-  <div id="monster-core">
 
-    <div class="monster-gif">
-          <MonsterId :identify="json.Id" :monsterName="json.Name"/>
+
+    <div id="monster-wrapper">
+      <div class="monster-gif">
+        <MonsterId :identify="json.Id" :monsterName="json.Name"/>
+      </div>
+      <div class="monster-attributes">
+        <MonsterAttribute/>
+      </div>
+      <div class="monster-element">
+        <MonsterElement/>
+      </div>
+
     </div>
 
-    <div class="monster-attributes">
-      <MonsterAttribute/>
-    </div>
-    <div class="monster-element">
-      <MonsterElement/>
+    <div id="monster-supply">
+      <MonsterExperience/>
+      <MonsterItemMobMap/>
     </div>
 
-  </div>
+
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import MonsterId from "@/components/MonsterId.vue";
-import MonsterAttribute from "@/components/MonsterAttribute.vue";
-import MonsterElement from "@/components/MonsterElement.vue";
+import MonsterId from "@/components/Monster/MonsterId.vue";
+import MonsterAttribute from "@/components/Monster/MonsterAttribute.vue";
+import MonsterElement from "@/components/Monster/MonsterElement.vue";
+import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperience.vue";
+import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";
 
 export default defineComponent({
-  components: {MonsterElement, MonsterAttribute, MonsterId},
+  components: {MonsterItemMobMap, MonsterExperience, MonsterElement, MonsterAttribute, MonsterId},
   data() {
     return {
       json: {
@@ -46,9 +55,8 @@ export default defineComponent({
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-#monster-core {
+#monster-wrapper {
   display: flex;
-  height: 400px;
 
 }
 
@@ -56,7 +64,9 @@ export default defineComponent({
   width: 300px;
 }
 
-
+#monster-supply {
+  display: flex;
+}
 
 
 </style>

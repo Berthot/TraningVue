@@ -1,68 +1,127 @@
 <template>
-  <div>
-    <ToggleSideBar @click="toggleMenu('sideBar')"/>
-    <SideBarExpand v-if="menu.sideBar"/>
-    <SideBarRetract v-else/>
-  </div>
-
-  <div>
-
+  <div id="sidebar">
+    <nav>
+      <div class="sidebar-header">
+        <h3>RagnaLib</h3>
+      </div>
+      <ul>
+        <li v-for="sideBarItem in SideBarItems" :key="sideBarItem.name" >
+          <span @click="toggleDropDown(sideBarItem)">
+              <router-link v-bind:to="sideBarItem.routerName">{{ sideBarItem.name }}
+                <Icon v-if="sideBarItem.hasDropDown" icon-name="caret-down" class="dropdown-icon"/>
+              </router-link>
+          </span>
+          <ul v-if="sideBarItem.subItems.length !== 0 && sideBarItem.dropdown">
+            <li v-for="subItem in sideBarItem.subItems" :key="subItem.name">
+              <router-link v-bind:to="subItem.routerName">{{ subItem.name }}</router-link>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
-
 <script lang="ts">
-import {defineComponent} from 'vue';
+import {defineComponent} from "vue";
+import {SideBarItems, SideBarSubItems} from "@/Structs/SideBarItems";
 import Icon from "@/components/SideBar/Icon.vue";
-import ToggleSideBar from "@/components/ToggleSideBar.vue";
-import SideBarExpand from "@/components/SideBar/SideBarExpand.vue";
-import SideBarRetract from "@/components/SideBar/SideBarRetract.vue";
+
 
 export default defineComponent({
-  components: {SideBarRetract, SideBarExpand, ToggleSideBar},
+  components: {Icon},
+  name: "SideBarV2",
   data() {
     return {
-      menu: {
-        "tool": false,
-        "database": false,
-        "sideBar": true
-      } as Record<string, boolean>
+      SideBarItems: [
+        {
+          name: "Home",
+          dropdown: false,
+          routerName: "/",
+          hasDropDown: false,
+          subItems: [],
+        } as SideBarItems,
+        {
+          name: "Database",
+          dropdown: false,
+          hasDropDown: true,
+          routerName: "",
+          subItems: [
+            {
+              name: "Monsters",
+              routerName: "/database/Monster",
+            } as SideBarSubItems,
+            {
+              name: "Items",
+              routerName: "/database/Item",
+            } as SideBarSubItems
+          ]
+        } as SideBarItems,
+        {
+          name: "Tool",
+          dropdown: false,
+          hasDropDown: true,
+          routerName: "",
+          subItems: [
+            {
+              name: "MVP Timer",
+              routerName: "/tool/mvp-timer",
+            } as SideBarSubItems,
+            {
+              name: "Skill Calc",
+              routerName: "/tool/skill-calc",
+            } as SideBarSubItems,
+
+          ]
+        } as SideBarItems,
+        {
+          name: "Contact",
+          dropdown: false,
+          routerName: "/contact",
+          hasDropDown: false,
+          subItems: [],
+        } as SideBarItems,
+      ] as SideBarItems[]
     }
   },
   methods: {
-    toggleMenu(option: string): void {
-      this.menu[option] = !this.menu[option]
+    toggleDropDown(option: SideBarItems): void {
+      option.dropdown = !option.dropdown
     }
   },
-  props: {},
-});
-</script>
+})
 
+</script>
 
 <style scoped>
 
-#sidebar-retracted {
-  min-width: 40px;
-  max-width: 40px;
-  min-height: 100vh;
-
+* {
+  color: white;
 }
-
-#sidebar {
-  min-width: 220px;
-  max-width: 220px;
-  min-height: 100vh;
-}
-
-/*#sidebar.active {*/
-/*  margin-left: -250px;*/
-/*}*/
 
 li {
   list-style-type: none;
 }
 
-.sidebar-content {
+
+.dropdown-icon {
+  padding-left: 4px;
+}
+
+.sidebar-header {
+  font-family: sans-serif;
+  align-content: center;
+  padding-top: 4px;
+  padding-left: 35px;
+}
+
+#sidebar {
+  background: #1e1e1e;
+  color: #fff;
+  transition: all 0.3s;
+  min-width: 220px;
+  max-width: 220px;
+  min-height: 100vh;
   position: sticky;
   top: 0;
 }
@@ -71,70 +130,18 @@ a[data-toggle="collapse"] {
   position: relative;
 }
 
-/*.dropdown-toggle::after {*/
-/*  display: block;*/
-/*  position: absolute;*/
-/*  top: 50%;*/
-/*  right: 20px;*/
-/*  transform: translateY(-50%);*/
-/*}*/
-
-#sidebar {
-  background: #1e1e1e;
-  color: #fff;
-  transition: all 0.3s;
-}
-
-#sidebar .sidebar-header {
-  padding: 20px;
-  background: #1e1e1e;
-}
-
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #1e1e1e;
-}
-
-#sidebar ul p {
-  color: #fff;
-  padding: 10px;
-}
-
-#sidebar ul li a {
-  padding: 10px;
+#sidebar ul li a{
+  padding: 5px;
   font-size: 1.1em;
   display: block;
   border-left: 3px solid transparent;
-  /*padding-left: 25%;*/
 
 }
 
 #sidebar ul li a:hover {
-  /*color: #1e1e1e;*/
-  /*background: #fff;*/
   border-left-color: cyan;
   border-left-width: 10px;
 
-}
-
-#sidebar ul li.active > a,
-a[aria-expanded="true"] {
-  color: #fff;
-  background: #1e1e1e;
-
-}
-
-ul ul a {
-  font-size: 0.9em !important;
-  padding-left: 30px !important;
-  background: #1e1e1e;
-}
-
-p {
-  font-size: 1.1em;
-  font-weight: 300;
-  line-height: 1.7em;
-  color: #999;
 }
 
 a,
@@ -148,10 +155,12 @@ a:focus {
 @media (max-width: 768px) {
   #sidebar {
     margin-left: -250px;
+
   }
 
   #sidebar.active {
     margin-left: 0;
   }
 }
+
 </style>

@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="monster-gif">
-      <img alt="" src="../assets/kiel.gif">
+      <img alt="" src="../../assets/kiel.gif">
     </div>
   </div>
 </template>

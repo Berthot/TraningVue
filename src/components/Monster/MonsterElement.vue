@@ -1,6 +1,6 @@
 <template>
   <div >
-    <h1>test3</h1>
+    <h1>ELEMENT</h1>
 
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
   background-color: gold;
   border-radius: 10px;
   height: 400px;
-  width: 290px;
+  width: 275px;
 }
 
 </style>

@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import SideBar from './components/SideBarV2.vue';
+import SideBar from './components/SideBar.vue';
 import Card from './components/Card.vue';
 
 export default defineComponent({
@@ -33,6 +33,7 @@ export default defineComponent({
   display: flex;
   width: 100%;
   align-items: stretch;
+
   /*background-color: #B6C4EE;*/
 
 }
@@ -40,7 +41,8 @@ export default defineComponent({
 .bg{
   display: flex;
   flex-grow: 1;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   /*background-color: red;*/
 
 }
