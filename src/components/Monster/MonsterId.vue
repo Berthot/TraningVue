@@ -24,7 +24,13 @@ export default defineComponent({
 })
 
 </script>
-<style scoped>
+
+<!--<style>-->
+<!-- @import "src/styles/Variables.css";-->
+<!--</style>-->
+
+<style scoped lang="css">
+@import "src/styles/Variables.css";
 
 * {
   box-sizing: border-box;
@@ -33,14 +39,12 @@ export default defineComponent({
 }
 
 #wrapper {
-  position: absolute;
   width: 300px;
   height: 400px;
-  background-color: greenyellow;
+  /*background-color: greenyellow;*/
 }
 
 .monster-name {
-  position: relative;
   box-sizing: border-box;
   height: 70px;
   background-color: #8D95D7;
@@ -49,12 +53,13 @@ export default defineComponent({
 }
 
 .monster-id {
-  position: relative;
   width: 85px;
   height: 45px;
   align-items: center;
   background-color: #6C6C95;
   right: 8px;
+  margin-right: 15px;
+
 }
 
 .monster-id h1 {
@@ -64,7 +69,6 @@ export default defineComponent({
 }
 
 .monster-name h1 {
-  position: relative;
   margin: auto;
   font-style: normal;
   font-weight: 900;

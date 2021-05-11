@@ -3,7 +3,10 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'MonsterItemMobMap'
+  name: 'MonsterItemMobMap',
+  props: {
+
+  }
 }
 </script>
 <style scoped>

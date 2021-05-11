@@ -60,9 +60,6 @@ export default defineComponent({
 
 }
 
-.monster-gif {
-  width: 300px;
-}
 
 #monster-supply {
   display: flex;
