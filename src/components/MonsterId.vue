@@ -35,7 +35,7 @@ export default defineComponent({
 #wrapper {
   position: absolute;
   width: 300px;
-  height: 350px;
+  height: 400px;
   background-color: greenyellow;
 }
 
@@ -79,7 +79,18 @@ export default defineComponent({
   margin-left: auto;
   margin-right: auto;
   padding-top: 4rem;
-  width: 50%;
+
+
+}
+
+.monster-gif img{
+  object-fit: fill;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 170px;*/
+  height: auto;
+
 }
 
 
