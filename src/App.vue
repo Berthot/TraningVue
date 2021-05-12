@@ -31,7 +31,8 @@ export default defineComponent({
 <style>
 .wrapper {
   display: flex;
-  width: 100%;
+  width: auto;
+  /*min-width: 100vh;*/
   align-items: stretch;
 
   /*background-color: #B6C4EE;*/

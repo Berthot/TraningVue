@@ -1,23 +1,23 @@
 <template>
 
 
-    <div id="monster-wrapper">
-      <div class="monster-gif">
-        <MonsterId :identify="json.Id" :monsterName="json.Name"/>
-      </div>
-      <div class="monster-attributes">
-        <MonsterAttribute/>
-      </div>
-      <div class="monster-element">
-        <MonsterElement/>
-      </div>
-
+  <div id="monster-wrapper">
+    <div class="monster-gif">
+      <MonsterId :identify="json.Id" :monsterName="json.Name"/>
+    </div>
+    <div class="monster-attributes">
+      <MonsterAttribute/>
+    </div>
+    <div class="monster-element">
+      <MonsterElement/>
     </div>
 
-    <div id="monster-supply">
-      <MonsterExperience/>
-      <MonsterItemMobMap/>
-    </div>
+  </div>
+
+  <div id="monster-supply">
+    <MonsterExperience :base="json.base" :job="json.job" :mvp="json.mvp"/>
+    <MonsterItemMobMap/>
+  </div>
 
 
 </template>
@@ -43,7 +43,10 @@ export default defineComponent({
         Attributes: {
           "str": 166, "agi": 187, "vit": 155, "int": 141, "dex": 279, "luk": 180
         },
-        isMvp: true
+        isMvp: true,
+        job: 792000,
+        base: 1170000,
+        mvp: 0
       },
 
     }
@@ -57,13 +60,23 @@ export default defineComponent({
 
 #monster-wrapper {
   display: flex;
-
+  flex-direction: row;
 }
 
 
 #monster-supply {
   display: flex;
+  flex-direction: row;
+
 }
 
+@media (max-width: 768px) {
+  #monster-wrapper {
+    flex-flow: column nowrap;
+  }
+  #monster-supply {
+    flex-flow: column nowrap;
+  }
+}
 
 </style>

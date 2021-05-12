@@ -25,12 +25,8 @@ export default defineComponent({
 
 </script>
 
-<!--<style>-->
-<!-- @import "src/styles/Variables.css";-->
-<!--</style>-->
 
 <style scoped lang="css">
-@import "src/styles/Variables.css";
 
 * {
   box-sizing: border-box;
@@ -48,6 +44,7 @@ export default defineComponent({
   box-sizing: border-box;
   height: 70px;
   background-color: #8D95D7;
+  /*background-color: var(--test-color);*/
   align-items: center;
   display: flex;
 }
@@ -82,6 +79,7 @@ export default defineComponent({
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1.5rem;
   padding-top: 4rem;
 
 
