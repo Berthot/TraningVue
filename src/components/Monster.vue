@@ -6,6 +6,7 @@
       <MonsterId :identify="ragnaLibApi.id" :monsterName="ragnaLibApi.name" :gifImage="ragnaLibApi.gifUrl"/>
     </div>
     <div class="monster-attributes">
+      <MonsterStatus/>
       <MonsterAttribute/>
     </div>
     <div class="monster-element">
@@ -15,7 +16,7 @@
   </div>
 
   <div id="monster-supply">
-    <MonsterExperience :base="json.base" :job="json.job" :mvp="json.mvp"/>
+    <MonsterExperience :base="ragnaLibApi.experience.base" :job="ragnaLibApi.experience.job" :mvp="0"/>
     <MonsterItemMobMap/>
   </div>
 
@@ -25,14 +26,15 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import MonsterId from "@/components/Monster/MonsterId.vue";
-import MonsterAttribute from "@/components/Monster/MonsterAttribute.vue";
-import MonsterElement from "@/components/Monster/MonsterElement.vue";
+import MonsterAttribute from "@/components/Monster/MonsterStatus/MonsterAttribute.vue";
+import MonsterElement from "@/components/Monster/MonsterStatus/MonsterElement.vue";
 import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperience.vue";
 import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";
+import MonsterStatus from "@/components/Monster/MonsterStatus/MonsterStatus.vue";
 import mocJson from "@/assets/valk.json"
 
 export default defineComponent({
-  components: {MonsterItemMobMap, MonsterExperience, MonsterElement, MonsterAttribute, MonsterId},
+  components: {MonsterStatus, MonsterItemMobMap, MonsterExperience, MonsterElement, MonsterAttribute, MonsterId},
   data() {
     return {
       json: {

@@ -2,14 +2,18 @@
   <div class="monster-status">
     <h1>STATUS</h1>
   </div>
-  <div class="monster-attribute">
-    <h1>ATTRIBUTES</h1>
-  </div>
 </template>
 <script lang="ts">
-export default {
-  name: 'MonsterAttribute'
-}
+import {defineComponent} from "vue";
+
+export default defineComponent({
+  data() {
+    return {
+    }
+  },
+  props: {
+  },
+})
 </script>
 <style scoped>
 
@@ -27,14 +31,6 @@ export default {
   background-color: blue;
   height: 200px;
   margin-bottom: 15px;
-
-}
-
-.monster-attribute {
-  border-radius: 10px;
-  position: relative;
-  background-color: red;
-  height: 185px;
 
 }
 
