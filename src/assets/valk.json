@@ -1,0 +1,207 @@
+{
+  "name": "Valkyrie Randgris",
+  "dbName": "E_RANDGRIS",
+  "level": 141,
+  "health": 3205000,
+  "size": 2,
+  "gifUrl": "https://static.ragnaplace.com/db/npc/gif/2109.gif",
+  "elementId": 19,
+  "element": {
+    "name": "holy",
+    "tier": 4,
+    "neutral": 100,
+    "water": 0,
+    "earth": 0,
+    "fire": 0,
+    "wind": 0,
+    "poison": 0,
+    "holy": -100,
+    "dark": 200,
+    "ghost": 0,
+    "undead": 175,
+    "monsters": [],
+    "id": 19
+  },
+  "hasDrop": false,
+  "hasLocation": false,
+  "isMvp": true,
+  "raceId": 9,
+  "scaleId": 3,
+  "scale": {
+    "name": "large",
+    "monsters": [],
+    "id": 3
+  },
+  "experience": {
+    "base": 2600000,
+    "job": 2200000
+  },
+  "physicalAttack": {
+    "minimalDamage": 6211,
+    "maximumDamage": 9148
+  },
+  "magicAttack": {
+    "minimalDamage": 3505,
+    "maximumDamage": 6152
+  },
+  "defense": {
+    "magicDefense": 506,
+    "physicalDefense": 588
+  },
+  "primaryAttribute": {
+    "str": 196,
+    "agi": 131,
+    "vit": 125,
+    "int": 276,
+    "dex": 401,
+    "luk": 156
+  },
+  "secondaryAttribute": {
+    "hp": 3205000,
+    "sp": 1,
+    "flee": 712,
+    "hit": 472,
+    "attackSpeed": 576,
+    "attackRange": 3
+  },
+  "race": {
+    "name": "peixe",
+    "monsters": [],
+    "enName": "fish",
+    "id": 9
+  },
+  "monsterPerLocationMaps": [],
+  "monsterItemMaps": [
+    {
+      "monsterId": 2109,
+      "itemId": 4407,
+      "item": null,
+      "dropRate": 1,
+      "stealable": true,
+      "id": 8847
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 12539,
+      "item": null,
+      "dropRate": 100,
+      "stealable": false,
+      "id": 8848
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 7024,
+      "item": null,
+      "dropRate": 1250,
+      "stealable": false,
+      "id": 8849
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 2229,
+      "item": null,
+      "dropRate": 2500,
+      "stealable": false,
+      "id": 8850
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 2421,
+      "item": null,
+      "dropRate": 1500,
+      "stealable": false,
+      "id": 8851
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 2524,
+      "item": null,
+      "dropRate": 1500,
+      "stealable": false,
+      "id": 8852
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 2357,
+      "item": null,
+      "dropRate": 800,
+      "stealable": false,
+      "id": 8853
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 7510,
+      "item": null,
+      "dropRate": 2500,
+      "stealable": false,
+      "id": 8854
+    }
+  ],
+  "monsterMvpDropMaps": [
+    {
+      "monsterId": 2109,
+      "itemId": 4407,
+      "item": null,
+      "stealable": true,
+      "dropRate": 1,
+      "id": 231
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 12539,
+      "item": null,
+      "stealable": false,
+      "dropRate": 100,
+      "id": 232
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 7024,
+      "item": null,
+      "stealable": false,
+      "dropRate": 1250,
+      "id": 266
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 2357,
+      "item": null,
+      "stealable": false,
+      "dropRate": 800,
+      "id": 393
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 2421,
+      "item": null,
+      "stealable": false,
+      "dropRate": 1500,
+      "id": 394
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 2229,
+      "item": null,
+      "stealable": false,
+      "dropRate": 2500,
+      "id": 518
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 2524,
+      "item": null,
+      "stealable": false,
+      "dropRate": 1500,
+      "id": 552
+    },
+    {
+      "monsterId": 2109,
+      "itemId": 7510,
+      "item": null,
+      "stealable": false,
+      "dropRate": 2500,
+      "id": 553
+    }
+  ],
+  "id": 2109
+}

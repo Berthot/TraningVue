@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="monster-gif">
-      <img alt="" src="../../assets/kiel.gif">
+      <img alt="" v-bind:src="gifImage">
     </div>
   </div>
 </template>
@@ -18,7 +18,8 @@ import {defineComponent} from "vue";
 export default defineComponent({
   props: {
     identify: Number,
-    monsterName: String
+    monsterName: String,
+    gifImage: String
   },
 
 })

@@ -3,7 +3,7 @@
 
   <div id="monster-wrapper">
     <div class="monster-gif">
-      <MonsterId :identify="json.Id" :monsterName="json.Name"/>
+      <MonsterId :identify="ragnaLibApi.id" :monsterName="ragnaLibApi.name" :gifImage="ragnaLibApi.gifUrl"/>
     </div>
     <div class="monster-attributes">
       <MonsterAttribute/>
@@ -29,17 +29,19 @@ import MonsterAttribute from "@/components/Monster/MonsterAttribute.vue";
 import MonsterElement from "@/components/Monster/MonsterElement.vue";
 import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperience.vue";
 import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";
+import mocJson from "@/assets/valk.json"
 
 export default defineComponent({
   components: {MonsterItemMobMap, MonsterExperience, MonsterElement, MonsterAttribute, MonsterId},
   data() {
     return {
       json: {
-        Name: "KIEL-D-01",
+        gifImage: "https://static.ragnaplace.com/db/npc/gif/2109.gif",
+        Name: "Valkyrie Randgris",
         Id: 1734,
         mLevel: 112,
-        mRace: "Formless",
-        mSize: "Medium",
+        mRace: "Angel",
+        mSize: "Large",
         Attributes: {
           "str": 166, "agi": 187, "vit": 155, "int": 141, "dex": 279, "luk": 180
         },
@@ -48,7 +50,7 @@ export default defineComponent({
         base: 1170000,
         mvp: 0
       },
-
+      ragnaLibApi: mocJson
     }
   },
 
@@ -74,6 +76,7 @@ export default defineComponent({
   #monster-wrapper {
     flex-flow: column nowrap;
   }
+
   #monster-supply {
     flex-flow: column nowrap;
   }

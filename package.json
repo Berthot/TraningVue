@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
-    "core-js": "^3.6.5",
+    "cache-loader": "^4.1.0",
+    "core-js": "^3.12.1",
+    "core-ts": "^0.0.1",
     "css-loader": "^5.2.4",
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
