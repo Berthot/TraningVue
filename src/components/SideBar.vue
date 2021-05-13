@@ -50,12 +50,12 @@ export default defineComponent({
             {
               name: "Monsters",
               routerName: "/database/Monster",
-            } as SideBarSubItems,
+            },
             {
               name: "Items",
               routerName: "/database/Item",
-            } as SideBarSubItems
-          ]
+            }
+          ] as SideBarSubItems[]
         } as SideBarItems,
         {
           name: "Tool",

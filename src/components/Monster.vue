@@ -34,6 +34,7 @@ import MonsterStatus from "@/components/Monster/MonsterStatus/MonsterStatus.vue"
 import mocJson from "@/assets/valk.json"
 
 export default defineComponent({
+
   components: {MonsterStatus, MonsterItemMobMap, MonsterExperience, MonsterElement, MonsterAttribute, MonsterId},
   data() {
     return {
