@@ -32,35 +32,35 @@ export default defineComponent({
         {
           "key": "ATQ",
           "value": this.atq
-        } as GenericKeyValue,
+        },
         {
           "key": "ATQM",
           "value": this.atqm
-        } as GenericKeyValue,
+        },
         {
           "key": "DEF",
           "value": this.def
-        } as GenericKeyValue,
+        },
         {
           "key": "MDEF",
           "value": this.atq
-        } as GenericKeyValue,
+        },
         {
           "key": "HP",
           "value": this.health
-        } as GenericKeyValue,
+        },
         {
           "key": "ASPD",
           "value": this.aspd
-        } as GenericKeyValue,
+        },
         {
           "key": "FLEE",
           "value": this.flee
-        } as GenericKeyValue,
+        },
         {
           "key": "HIT",
           "value": this.hit
-        } as GenericKeyValue,
+        },
       ] as GenericKeyValue[]
     },
   },
