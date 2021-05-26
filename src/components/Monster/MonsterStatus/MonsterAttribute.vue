@@ -2,7 +2,7 @@
   <div class="monster-attribute">
     <ul class="attributes-items">
       <li v-for="item in GetItems()" :key="item.key">
-        <MonsterAttributeItems :item="item"/>
+        <MonsterAttributeItems :name="item.key" :value="item.value"/>
       </li>
     </ul>
   </div>

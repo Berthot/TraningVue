@@ -1,7 +1,7 @@
 <template>
   <div class="attributes">
-    <div class="attribute-name"><h1 class="value-center">{{ item.key }}</h1></div>
-    <div class="attribute-value"><h1 class="value-center">{{ item.value }}</h1></div>
+    <div class="attribute-name"><h1 class="value-center">{{ name }}</h1></div>
+    <div class="attribute-value"><h1 class="value-center">{{ value }}</h1></div>
   </div>
 </template>
 <script lang="ts">
@@ -11,7 +11,8 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   props:{
-    item: {}
+    name: String,
+    value: String,
   }
 })
 </script>
