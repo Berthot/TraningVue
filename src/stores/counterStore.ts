@@ -1,12 +1,12 @@
 import {defineStore} from "pinia";
 
-interface MainCounter {
+interface CounterState {
     counter: number;
 }
 
-export const useStore = defineStore({
-    id: 'counterStore',
-    state(): MainCounter {
+export const useCounterStore = defineStore({
+    id: 'counter',
+    state(): CounterState {
         return {
             counter: 0
         }
@@ -15,10 +15,13 @@ export const useStore = defineStore({
         increment() {
             this.counter++
         },
+        incrementBy(num: number) {
+            this.counter += num;
+        },
     },
-     getters: {
+    getters: {
         getCounter(state): number {
             return state.counter;
         }
-     }
+    }
 });

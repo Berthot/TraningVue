@@ -32,7 +32,9 @@ import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperie
 import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";
 import MonsterStatus from "@/components/Monster/MonsterStatus.vue";
 import mocJson from "@/assets/valk.json"
-import {useStore} from "@/store";
+import {useCounterStore} from "@/stores/counterStore";
+import {useMonsterStore} from "@/stores/MonsterStore";
+import {mapActions, mapStores} from 'pinia';
 
 export default defineComponent({
 
@@ -57,16 +59,38 @@ export default defineComponent({
       ragnaLibApi: mocJson
     }
   },
-  setup() {
-    const store = useStore()
-    store.increment();
-    console.log(store.getCounter);
+  methods: {
+    // Isso serve se vc só quiser acessar as actions de uma store, nos meus testes funcionou,
+    // mas o autocomplete ficou bugado
+    // da acesso do  this.fetchMonsterById(id) dentro do componente
+    // igual se chamasse  store.fetchMonsterById(id)
+    // ...mapActions(useMonsterStore, [
+    //     'fetchMonsterById',
+    //     'monsterById'
+    // ])
+  },
+  mounted() {
+    console.log(this.monsterStore.monsterById(1)?.name); // printa poring
+  },
+  // exemplo usando composition api
+  // setup() {
+  //   const store = useCounterStore()
+  //   store.increment();
+  //   store.incrementBy(5)
+  //   console.log(store.getCounter);
+  //
+  //   const monsterStore = useMonsterStore();
+  //   console.log(monsterStore.monsterById(1)?.name);
+  // },
+  computed: {
+    // isso deixa utiliazar toda a store no componente
+    // this.monsterStore.algumacoisa
+    ...mapStores(useMonsterStore)
   }
 
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 #monster-wrapper {
