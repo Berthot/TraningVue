@@ -1,9 +1,9 @@
 import {MonsterRequest} from "@/Structs/MonsterApi";
 
 export interface RootState {
-    count: number
+    monster: MonsterState;
 }
 
 export interface MonsterState {
-    monsters: MonsterRequest[]
+    monsters: MonsterRequest[];
 }

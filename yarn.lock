@@ -1568,7 +1568,7 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/devtools-api@^6.0.0-beta.11":
+"@vue/devtools-api@^6.0.0-beta.10", "@vue/devtools-api@^6.0.0-beta.11":
   version "6.0.0-beta.12"
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.12.tgz#693ffc77bfb66b080e5c9576abb5786c85470a32"
   integrity sha512-PtHmAxFmCyCElV7uTWMrXj+fefwn4lCfTtPo9fPw0SK8/7e3UaFl8IL7lnugJmNFfeKQyuTkSoGvTq1uDaRF6Q==
@@ -6698,6 +6698,13 @@ pify@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/pify/-/pify-4.0.1.tgz"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
+
+pinia@^2.0.0-alpha.19:
+  version "2.0.0-alpha.19"
+  resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.0.0-alpha.19.tgz#0a119c65585a67f7756d5995d11d4b1df4acfbeb"
+  integrity sha512-U/FvKm2tVUdqEuPorkYvD3oCgIj/u5EnF9TbX5dEpkNkoWKQM1i23e97QKtQFGuTxMSfzmBFFINv4A9VeVZ1wQ==
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.10"
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
