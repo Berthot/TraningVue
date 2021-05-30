@@ -10,7 +10,7 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import {GenericKeyValue} from "@/Structs/GenericKeyValue";
-import MonsterAttributeItems from "@/components/Monster/MonsterStatus/MonsterAttributeItems.vue";
+import MonsterAttributeItems from "@/components/Monster/MonsterAttribute/MonsterAttributeItems.vue";
 
 export default defineComponent({
   components: {MonsterAttributeItems},

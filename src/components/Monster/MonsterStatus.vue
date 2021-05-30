@@ -1,31 +1,27 @@
 <template>
-  <div class="monster-status">
-    <div class="top-side">
-      <ul>
-        <li v-for="stat in status" :key="stat.key">
-          <div class="status-item">
-            <img :src="stat.icon" alt="">
-          </div>
-        </li>
-      </ul>
-    </div>
+  <div class="wrapper-monster-status">
+    <ul class="level-race-size">
+      <li v-for="stat in status" :key="stat.key">
+        <MonsterSizeLevelRace :stat="stat"/>
+      </li>
+    </ul>
 
-    <div class="bot-side">
-      <IsMvp :mvp="mvp"/>
-      <div class="attributes">
+    <!--    <div class="mvp-attribute">-->
+    <!--      <IsMvp :mvp="mvp"/>-->
 
-      </div>
-    </div>
+    <!--      <div class="attributes">-->
+    <!--      </div>-->
+    <!--    </div>-->
 
   </div>
 </template>
 <script lang="ts">
 import {defineComponent} from "vue";
-import IsMvp from "@/components/Monster/MonsterStatus/IsMvp.vue";
-import {GenericKeyValue} from "@/Structs/GenericKeyValue";
+import MonsterSizeLevelRace from "@/components/Monster/MonsterSizeLevelRace.vue";
+// import IsMvp from "@/components/Monster/MonsterStatus/IsMvp.vue";
 
 export default defineComponent({
-  components: {IsMvp},
+  components: {MonsterSizeLevelRace},
   data() {
     return {
       "mvp": true,
@@ -59,57 +55,48 @@ export default defineComponent({
   border-radius: 10px;
   box-sizing: border-box;
   margin: 0 15px 15px;
-  list-style: none ;
+  list-style: none;
 }
 
-
-.monster-status {
+.wrapper-monster-status {
   border-radius: 10px;
   position: relative;
   background-color: #8D95D7;
   height: 200px;
   margin-bottom: 15px;
 
+
 }
 
-.top-side {
+.level-race-size {
   display: flex;
-  justify-content: space-between;
-  /*background-color: red;*/
+  gap: 15px;
   height: 70px;
   width: 430px;
-  padding-top: 10px;
+  padding: 10px 0;
+  margin: 0;
 }
 
-li img {
-  width: 30px;
-  height: 30px;
-}
-
-.status-item {
+.level-race-size {
   display: flex;
-  height: 70px;
-  width: 110px;
-  background-color: #6C6C95;
+  padding: 0;
+  margin: 0 5px;
 }
 
-.bot-side {
+
+.level-race-size > li {
+  display: flex;
+  padding: 0;
+  margin: 15px 10px;
+}
+
+.mvp-attribute {
   display: flex;
   height: 100px;
   width: 430px;
   padding-top: 10px;
 
   /*background-color: aqua;*/
-}
-
-.mvp-tag span {
-  margin: 0;
-}
-
-.mvp-tag > span > img {
-  width: 110px;
-  height: 100px;
-  margin-left: 0;
 }
 
 .attributes {

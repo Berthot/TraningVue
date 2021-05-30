@@ -1,4 +1,5 @@
 <template>
+
   <div class="mvp-tag">
         <span v-if="mvp">
             <img alt="" src="https://i.ibb.co/hgCJ27p/mvp-on.png">

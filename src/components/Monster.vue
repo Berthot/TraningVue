@@ -26,11 +26,11 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import MonsterId from "@/components/Monster/MonsterId.vue";
-import MonsterAttribute from "@/components/Monster/MonsterStatus/MonsterAttribute.vue";
-import MonsterElement from "@/components/Monster/MonsterStatus/MonsterElement.vue";
+import MonsterAttribute from "@/components/Monster/MonsterAttribute.vue";
+import MonsterElement from "@/components/Monster/MonsterElement.vue";
 import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperience.vue";
 import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";
-import MonsterStatus from "@/components/Monster/MonsterStatus/MonsterStatus.vue";
+import MonsterStatus from "@/components/Monster/MonsterStatus.vue";
 import mocJson from "@/assets/valk.json"
 
 export default defineComponent({
