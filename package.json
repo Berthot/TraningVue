@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "cache-loader": "^4.1.0",
     "core-js": "^3.12.1",
@@ -15,6 +16,7 @@
     "css-loader": "^5.2.4",
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
+    "pinia": "^2.0.0-alpha.19",
     "popper.js": "^1.16.1",
     "sass": "^1.32.12",
     "sass-loader": "^11.0.1",
