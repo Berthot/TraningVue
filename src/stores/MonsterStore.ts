@@ -24,7 +24,7 @@ export const useMonsterStore = defineStore({
             if (this.monsterById(id) !== undefined) {
                 return;
             }
-            return await axios.get('url' + id).then((response) => {
+            return await axios.get('https://localhost:5001/api/Monster/' + id).then((response) => {
                 const monster: MonsterRequest =  response.data;
                 this.addMonster(monster);
             }).catch((err) => {

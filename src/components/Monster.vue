@@ -32,9 +32,8 @@ import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperie
 import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";
 import MonsterStatus from "@/components/Monster/MonsterStatus.vue";
 import mocJson from "@/assets/valk.json"
-import {useCounterStore} from "@/stores/counterStore";
 import {useMonsterStore} from "@/stores/MonsterStore";
-import {mapActions, mapStores} from 'pinia';
+import {mapStores} from 'pinia';
 
 export default defineComponent({
 
@@ -56,7 +55,8 @@ export default defineComponent({
         base: 1170000,
         mvp: 0
       },
-      ragnaLibApi: mocJson
+      ragnaLibApi: mocJson,
+      ragnaLibApi2: mocJson
     }
   },
   methods: {
@@ -70,6 +70,9 @@ export default defineComponent({
     // ])
   },
   mounted() {
+    this.monsterStore.fetchMonsterById(1832).then(()=>{
+      console.log(this.monsterStore.monsterById(1832));
+    })
     console.log(this.monsterStore.monsterById(1)?.name); // printa poring
   },
   // exemplo usando composition api
