@@ -24,15 +24,20 @@ export const useMonsterStore = defineStore({
             if (this.monsterById(id) !== undefined) {
                 return;
             }
-            return await axios.get('https://localhost:5001/api/Monster/' + id).then((response) => {
-                const monster: MonsterRequest =  response.data;
-                this.addMonster(monster);
-            }).catch((err) => {
-                console.log("ERRO CABULOZO AO TENTAR PEGAR O MONSTRO");
-            })
+            return await new Promise(r => setTimeout(r, 2000));
+            // return await axios.get('https://localhost:5001/api/Monster/' + id).then((response) => {
+            //     const monster: MonsterRequest =  response.data;
+            //     this.addMonster(monster);
+            // }).catch((err) => {
+            //     console.log("ERRO CABULOZO AO TENTAR PEGAR O MONSTRO");
+            // })
         },
-        monsterById(id: number): MonsterRequestOpcional | undefined {
-            return this.monsters.find((monster: MonsterRequestOpcional) => monster.id === id);
+        monsterById(id: number): MonsterRequestOpcional {
+            const monster = this.monsters.find((monster: MonsterRequestOpcional) => monster.id === id);
+            if (monster) {
+                return monster;
+            }
+            return {};
         },
         addMonster(monster: MonsterRequest): void {
             this.monsters.push(monster);
