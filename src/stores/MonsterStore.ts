@@ -36,6 +36,7 @@ export const useMonsterStore = defineStore({
         },
         addMonster(monster: MonsterRequest): void {
             this.monsters.push(monster);
+            console.log(this.monsters);
         }
     },
     getters: {
