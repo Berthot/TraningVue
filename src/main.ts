@@ -3,9 +3,11 @@ import App from './App.vue'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import router from './router'
+import {key, store} from "@/store/store";
 
 const app = createApp(App)
 
+app.use(store, key)
 
 app.use(router)
 

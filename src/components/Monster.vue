@@ -32,6 +32,7 @@ import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperie
 import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";
 import MonsterStatus from "@/components/Monster/MonsterStatus.vue";
 import mocJson from "@/assets/valk.json"
+import {useStore} from "@/store/store";
 
 export default defineComponent({
 
@@ -56,6 +57,11 @@ export default defineComponent({
       ragnaLibApi: mocJson
     }
   },
+  setup() {
+    const index = useStore()
+    const x = null
+    store.dispatch('', x)
+  }
 
 });
 </script>
