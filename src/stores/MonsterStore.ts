@@ -1,6 +1,7 @@
 import {defineStore} from "pinia";
 import {MonsterRequest} from "@/Structs/MonsterApi";
 import axios from "axios";
+import mocJson from "@/assets/valk.json"
 
 // esse partial faz todos os atributos da interface serem opcionais, da para você tirar ele depois, ou definir isso direto na interface
 export type MonsterRequestOpcional = Partial<MonsterRequest>;
@@ -13,10 +14,7 @@ export const useMonsterStore = defineStore({
     id: 'monster',
     state(): MonsterState {
         return {
-            monsters: [{
-                id: 1,
-                name: 'poring'
-            }]
+            monsters: [mocJson]
         }
     },
     actions: {
