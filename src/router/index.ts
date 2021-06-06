@@ -8,7 +8,12 @@ const routes: Array<RouteRecordRaw> = [
     component: Home
   },
   {
-    path: '/database/monster',
+    path: '/database/monster/',
+    name: 'MonsterIndex',
+    component: () => import(/* webpackChunkName: "Monster" */ '../components/MonsterIndex.vue')
+  },
+  {
+    path: '/database/monster/:id',
     name: 'Monster',
     component: () => import(/* webpackChunkName: "Monster" */ '../components/Monster.vue')
   },
