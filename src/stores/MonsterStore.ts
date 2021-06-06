@@ -24,7 +24,7 @@ export const useMonsterStore = defineStore({
                 return;
             }
             // return await new Promise(r => setTimeout(r, 2000));
-            return await axios.get('https://localhost:5001/api/Monster/' + id).then((response) => {
+            return await axios.get('https://ragnalib-service.bertho.dev/api/Monster/' + id).then((response) => {
                 const monster: MonsterRequest = response.data;
                 this.addMonster(monster);
 
