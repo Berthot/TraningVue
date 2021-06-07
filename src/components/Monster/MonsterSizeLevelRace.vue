@@ -19,7 +19,7 @@ import {defineComponent, PropType} from "vue";
 export default defineComponent({
   data() {
     return {
-      fontSizeValue: `${this.fontSize2()}em`
+      fontSizeValue: `${this.getFontSizeValue()}em`
     }
   },
   props: {
@@ -29,13 +29,8 @@ export default defineComponent({
     }
   },
   methods: {
-    fontSize2(): number {
-      let value = this.keyValueIcon.value;
-      if (value == undefined)
-        return 0.93
-      if (value.length >= 7)
-        return 0.83
-      return 0.93
+    getFontSizeValue(): number {
+      return this.keyValueIcon.value?.length >= 7 ? 0.83 : 0.93;
     }
   }
 })
