@@ -26,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/tool/mvp-timer',
     name: 'MvpTimer',
     component: () => import(/* webpackChunkName: "MvpTimer" */ '../components/MvpTimer.vue')
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: () => import(/* webpackChunkName: "MvpTimer" */ '../components/Contact.vue')
   }
 ]
 
