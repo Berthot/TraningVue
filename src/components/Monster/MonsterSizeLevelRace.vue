@@ -1,20 +1,44 @@
 <template>
   <div class="size-level-race-wrapper">
     <div class="slr-header">
-      <h1>{{ stat.key }}</h1>
+      <p>{{ keyValueIcon.key }}</p>
     </div>
     <div class="slr-value">
-      <img :src="stat.icon" alt="">
-      <h1>{{ stat.value }}</h1>
+      <img :src="keyValueIcon.icon" alt="">
+      <div class="value-position">
+        <p :style="{ fontSize: fontSizeValue}">{{ keyValueIcon.value }}</p>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-export default {
+
+import {KeyValueIcon} from "@/Structs/KeyValueIcon";
+import {defineComponent, PropType} from "vue";
+
+export default defineComponent({
+  data() {
+    return {
+      fontSizeValue: `${this.fontSize2()}em`
+    }
+  },
   props: {
-    stat: {}
+    keyValueIcon: {
+      type: Object as PropType<KeyValueIcon>,
+      required: true
+    }
+  },
+  methods: {
+    fontSize2(): number {
+      let value = this.keyValueIcon.value;
+      if (value == undefined)
+        return 0.93
+      if (value.length >= 7)
+        return 0.83
+      return 0.93
+    }
   }
-}
+})
 </script>
 <style scoped>
 
@@ -31,16 +55,14 @@ li img {
 
 .size-level-race-wrapper {
   display: flex;
-  height: 70px;
-  width: 120px;
-  background-color: #6C6C95;
   margin: 0;
   padding: 0 10px;
   flex-direction: column;
 }
 
-.slr-header h1 {
+.slr-header p {
   margin-top: 2px;
+  margin-bottom: 0;
   font-weight: bold;
 
 }
@@ -50,18 +72,22 @@ li img {
   flex-direction: row;
 }
 
-.slr-value img{
+.slr-value img {
   height: 20px;
   width: 20px;
 }
 
-.slr-value h1{
-  color: greenyellow;
-  font-size: 0.9em;
+.value-position {
+  height: 1.5rem;
+  width: 5.2rem;
+  font-size: 0.93em;
   white-space: nowrap;
-  padding-left: 0.2em;
-  margin-top: 10px;
+  padding-left: 0.1em;
 }
 
+.value-position p {
+  color: greenyellow;
+  margin: 0;
 
+}
 </style>

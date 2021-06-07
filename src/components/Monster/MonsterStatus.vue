@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper-monster-status">
     <ul class="level-race-size">
-      <li v-for="stat in status" :key="stat.key">
-        <MonsterSizeLevelRace :stat="stat"/>
+      <li class="level-race-size-items" v-for="stat in status" :key="stat.key">
+        <MonsterSizeLevelRace :keyValueIcon="stat"/>
       </li>
     </ul>
 
@@ -18,6 +18,7 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import MonsterSizeLevelRace from "@/components/Monster/MonsterSizeLevelRace.vue";
+import {KeyValueIcon} from "@/Structs/KeyValueIcon";
 // import IsMvp from "@/components/Monster/MonsterStatus/IsMvp.vue";
 
 export default defineComponent({
@@ -42,13 +43,13 @@ export default defineComponent({
           "value": "Large",
           "icon": require("@/assets/medium-icon.png")
         },
-      ]
+      ] as KeyValueIcon[]
     }
   },
   props: {},
 })
 </script>
-<style scoped>
+<style scoped >
 
 * {
   width: 460px;
@@ -73,21 +74,25 @@ export default defineComponent({
   gap: 15px;
   height: 70px;
   width: 430px;
-  padding: 10px 0;
-  margin: 0;
-}
-
-.level-race-size {
-  display: flex;
   padding: 0;
   margin: 0 5px;
 }
 
 
 .level-race-size > li {
-  display: flex;
-  padding: 0;
   margin: 15px 10px;
+}
+
+.level-race-size-items{
+  background-color: #6C6C95;
+  display: flex;
+  gap: 15px;
+  height: 70px;
+  width: 105px;
+}
+
+.level-race-size-items:nth-child(2) {
+  width: 150px;
 }
 
 .mvp-attribute {
