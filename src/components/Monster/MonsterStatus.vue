@@ -35,7 +35,7 @@ export default defineComponent({
         },
         {
           "key": "Race",
-          "value": "Demi-Human",
+          "value": "Formless",
           "icon": require("@/assets/race-icon.png")
         },
         {

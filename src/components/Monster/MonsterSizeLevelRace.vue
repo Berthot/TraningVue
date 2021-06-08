@@ -6,7 +6,7 @@
     <div class="slr-value">
       <img :src="keyValueIcon.icon" alt="">
       <div class="value-position">
-        <p :style="{ fontSize: fontSizeValue}">{{ keyValueIcon.value }}</p>
+        <p :style="{ fontSize: fontSizeValue, paddingTop: paddingTopValue}">{{ keyValueIcon.value }}</p>
       </div>
     </div>
   </div>
@@ -19,7 +19,8 @@ import {defineComponent, PropType} from "vue";
 export default defineComponent({
   data() {
     return {
-      fontSizeValue: `${this.getFontSizeValue()}em`
+      fontSizeValue: `${this.getFontSizeValue()}em`,
+      paddingTopValue: `${this.getPaddingTopValue()}px`,
     }
   },
   props: {
@@ -30,7 +31,11 @@ export default defineComponent({
   },
   methods: {
     getFontSizeValue(): number {
-      return this.keyValueIcon.value?.length >= 7 ? 0.83 : 0.93;
+      return this.keyValueIcon.value?.length < 9 ? 0.93 : 0.81;
+    },
+    getPaddingTopValue(): number{
+      return this.keyValueIcon.value?.length < 9 ? 0 : 2;
+
     }
   }
 })
@@ -43,11 +48,6 @@ export default defineComponent({
 }
 
 
-li img {
-  width: 30px;
-  height: 30px;
-}
-
 .size-level-race-wrapper {
   display: flex;
   margin: 0;
@@ -56,7 +56,7 @@ li img {
 }
 
 .slr-header p {
-  margin-top: 2px;
+  margin-top: 0;
   margin-bottom: 0;
   font-weight: bold;
 
@@ -65,6 +65,7 @@ li img {
 .slr-value {
   display: flex;
   flex-direction: row;
+
 }
 
 .slr-value img {
@@ -73,16 +74,22 @@ li img {
 }
 
 .value-position {
-  height: 1.5rem;
-  width: 5.2rem;
+  display: flex;
   font-size: 0.93em;
   white-space: nowrap;
-  padding-left: 0.1em;
+  padding-left: 0.15em;
+
 }
 
 .value-position p {
+  font-weight: bold;
+
   color: greenyellow;
-  margin: 0;
+  position: absolute;
+  margin-top: -5px;
+  margin-bottom: 0;
+
+
 
 }
 </style>
