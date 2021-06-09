@@ -31,10 +31,10 @@ export default defineComponent({
   },
   methods: {
     getFontSizeValue(): number {
-      return this.keyValueIcon.value == null || this.keyValueIcon.value?.length < 9 ? 0.93 : 0.81;
+      return this.keyValueIcon.value == null || this.keyValueIcon.value.toString()?.length < 9 ? 0.93 : 0.81;
     },
     getPaddingTopValue(): number {
-      return this.keyValueIcon.value == null || this.keyValueIcon.value?.length < 9 ? 0 : 2;
+      return this.keyValueIcon.value == null || this.keyValueIcon.value.toString()?.length < 9 ? 0 : 2;
 
     }
   }

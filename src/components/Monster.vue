@@ -6,7 +6,7 @@
       <MonsterId :identify="monster.id" :monsterName="monster.name" :gifImage="monster.gifUrl"/>
     </div>
     <div class="monster-attributes">
-      <MonsterStatus/>
+      <MonsterStatus :level="monster.level" :race="monster.race" :size="monster.size"/>
       <MonsterAttribute/>
     </div>
     <div class="monster-element">
@@ -43,8 +43,7 @@ export default defineComponent({
     }
   },
 
-  methods: {
-  },
+  methods: {},
   created() {
     const monsterId = Number(this.$route.params.id);
     this.monsterStore.fetchMonsterById(monsterId).then(() => {

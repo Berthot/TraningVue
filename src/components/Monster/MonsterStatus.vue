@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper-monster-status">
     <ul class="level-race-size">
-      <li class="level-race-size-items" v-for="stat in status" :key="stat.key">
+      <li class="level-race-size-items" v-for="stat in GetStatus()" :key="stat.key">
         <MonsterSizeLevelRace :keyValueIcon="stat"/>
       </li>
     </ul>
@@ -23,33 +23,41 @@ import {KeyValueIcon} from "@/Structs/KeyValueIcon";
 
 export default defineComponent({
   components: {MonsterSizeLevelRace},
+  props: {
+    level: Number,
+    race: String,
+    size: String
+  },
   data() {
     return {
-      "mvp": true,
-      "level": 123,
-      "status": [
+      status: {} as KeyValueIcon[]
+    }
+  },
+  methods: {
+    GetStatus(): KeyValueIcon[] {
+      return [
         {
           "key": "Level",
-          "value": "122",
+          "value": this.level,
           "icon": require("@/assets/level-icon.png")
         },
         {
           "key": "Race",
-          "value": "Formless",
+          "value": this.race,
           "icon": require("@/assets/race-icon.png")
         },
         {
           "key": "Size",
-          "value": "Large",
+          "value": this.size,
           "icon": require("@/assets/medium-icon.png")
         },
       ] as KeyValueIcon[]
     }
   },
-  props: {},
+
 })
 </script>
-<style scoped >
+<style scoped>
 
 * {
   width: 460px;
@@ -83,7 +91,7 @@ export default defineComponent({
   margin: 15px 10px;
 }
 
-.level-race-size-items{
+.level-race-size-items {
   background-color: #6C6C95;
   display: flex;
   gap: 15px;

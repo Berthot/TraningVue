@@ -1,5 +1,5 @@
 export interface KeyValueIcon {
     key?: string;
-    value?: string;
+    value?: string | number;
     icon?: string;
 }
