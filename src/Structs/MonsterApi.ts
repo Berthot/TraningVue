@@ -11,37 +11,15 @@ export interface Element {
     dark: number;
     ghost: number;
     undead: number;
-    monsters: MonsterRequest[];
-    id: number;
-}
-
-export interface Scale {
-    name: string;
-    monsters: MonsterRequest[];
-    id: number;
 }
 
 export interface Experience {
     base: number;
     job: number;
+    mvp: number;
 }
 
-export interface PhysicalAttack {
-    minimalDamage: number;
-    maximumDamage: number;
-}
-
-export interface MagicAttack {
-    minimalDamage: number;
-    maximumDamage: number;
-}
-
-export interface Defense {
-    magicDefense: number;
-    physicalDefense: number;
-}
-
-export interface PrimaryAttribute {
+export interface PrimaryStats {
     str: number;
     agi: number;
     vit: number;
@@ -50,7 +28,7 @@ export interface PrimaryAttribute {
     luk: number;
 }
 
-export interface SecondaryAttribute {
+export interface SecondaryStats {
     hp: number;
     sp: number;
     flee: number;
@@ -59,57 +37,60 @@ export interface SecondaryAttribute {
     attackRange: number;
 }
 
-export interface Race {
+export interface Location {
+    locationName: string;
+    mapUrl: string;
+    mapCleanUrl: string;
+    type: string;
     name: string;
-    monsters: MonsterRequest[];
-    enName: string;
-    id: number;
+    quantity: number;
+    respawnTime: number;
 }
 
-export interface MonsterItemMap {
-    monsterId: number;
+export interface MonsterDrop {
     itemId: number;
-    item?: any;
+    monsterId: number;
     dropRate: number;
-    stealable: boolean;
-    id: number;
+    name: string;
+    smallImageUrl: string;
+    imageUrl: string;
+    cardImageUrl: string;
+    itemType: string;
 }
 
-export interface MonsterMvpDropMap {
-    monsterId: number;
+export interface MonsterMvpDrop {
     itemId: number;
-    item?: any;
-    stealable: boolean;
+    monsterId: number;
     dropRate: number;
-    id: number;
+    name: string;
+    smallImageUrl: string;
+    imageUrl: string;
+    cardImageUrl: string;
+    itemType: string;
 }
 
 export interface MonsterRequest {
+    id: number;
     name: string;
     dbName: string;
     level: number;
     health: number;
     size: number;
     gifUrl: string;
-    elementId: number;
-    element: Element;
-    hasDrop: boolean;
-    hasLocation: boolean;
     isMvp: boolean;
-    raceId: number;
-    scaleId: number;
-    scale: Scale;
+    scale: string;
+    physicalAttack: string;
+    magicAttack: string;
+    magicDefense: string;
+    physicalDefense: string;
+    race: string;
+    element: Element;
     experience: Experience;
-    physicalAttack: PhysicalAttack;
-    magicAttack: MagicAttack;
-    defense: Defense;
-    primaryAttribute: PrimaryAttribute;
-    secondaryAttribute: SecondaryAttribute;
-    race: Race;
-    monsterPerLocationMaps: any[];
-    monsterItemMaps: MonsterItemMap[];
-    monsterMvpDropMaps: MonsterMvpDropMap[];
-    id: number;
+    primaryStats: PrimaryStats;
+    secondaryStats: SecondaryStats;
+    locations: Location[];
+    monsterDrops: MonsterDrop[];
+    monsterMvpDrops: MonsterMvpDrop[];
 }
 
 
