@@ -30,6 +30,8 @@ export default {
 .mvp-tag {
   height: 100%;
   width: 110px;
+  margin: 0;
+  padding-top: 13px;
   /*background-color: red;*/
 
 }

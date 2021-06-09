@@ -6,12 +6,12 @@
       </li>
     </ul>
 
-    <!--    <div class="mvp-attribute">-->
-    <!--      <IsMvp :mvp="mvp"/>-->
+        <div class="mvp-attribute">
+          <IsMvp :mvp="mvp"/>
 
-    <!--      <div class="attributes">-->
-    <!--      </div>-->
-    <!--    </div>-->
+          <div class="attributes">
+          </div>
+        </div>
 
   </div>
 </template>
@@ -19,11 +19,12 @@
 import {defineComponent} from "vue";
 import MonsterSizeLevelRace from "@/components/Monster/MonsterSizeLevelRace.vue";
 import {KeyValueIcon} from "@/Structs/KeyValueIcon";
-// import IsMvp from "@/components/Monster/MonsterStatus/IsMvp.vue";
+import IsMvp from "@/components/Monster/MonsterStatus/IsMvp.vue";
 
 export default defineComponent({
-  components: {MonsterSizeLevelRace},
+  components: {IsMvp, MonsterSizeLevelRace},
   props: {
+    mvp: Boolean,
     level: Number,
     race: String,
     size: String
