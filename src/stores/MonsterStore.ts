@@ -23,9 +23,9 @@ export const useMonsterStore = defineStore({
             if (notEmpty(this.monsterById(id))) {
                 return;
             }
-            // console.log(process.env.MONSTER_API)
+            // console.log(process.env.VUE_APP_MONSTER_API)
             // return await new Promise(r => setTimeout(r, 2000));
-            return await axios.get("https://localhost:5001/api/Monster/" + id.toString()).then((response) => {
+            return await axios.get(process.env.VUE_APP_MONSTER_API + id.toString()).then((response) => {
                 const monster: MonsterRequest = response.data;
                 this.addMonster(monster);
 
