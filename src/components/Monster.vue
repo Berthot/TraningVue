@@ -6,7 +6,7 @@
       <MonsterId :identify="monster.id" :monsterName="monster.name" :gifImage="monster.gifUrl"/>
     </div>
     <div class="monster-attributes">
-      <MonsterStatus :mvp="monster.isMvp" :level="monster.level" :race="monster.race" :size="monster.size"/>
+      <MonsterStatus :attributes="monster.primaryStats" :mvp="monster.isMvp" :level="monster.level" :race="monster.race" :size="monster.size"/>
       <MonsterAttribute :attributes="monster.secondaryStats" :attack="getAttack()" :defense="getDefense()"/>
     </div>
     <div class="monster-element">
@@ -26,7 +26,7 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import MonsterId from "@/components/Monster/MonsterId.vue";
-import MonsterAttribute from "@/components/Monster/MonsterAttribute.vue";
+import MonsterAttribute from "@/components/Monster/MonsterAttribute/MonsterSeconderyAttribute.vue";
 import MonsterElement from "@/components/Monster/MonsterElement.vue";
 import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperience.vue";
 import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";

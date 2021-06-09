@@ -6,24 +6,28 @@
       </li>
     </ul>
 
-        <div class="mvp-attribute">
-          <IsMvp :mvp="mvp"/>
-
-          <div class="attributes">
-          </div>
-        </div>
+    <div class="attributes">
+      <IsMvp :mvp="mvp"/>
+      <MonsterPrimaryAttribute :attributes="attributes"/>
+    </div>
 
   </div>
 </template>
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, PropType} from "vue";
 import MonsterSizeLevelRace from "@/components/Monster/MonsterSizeLevelRace.vue";
 import {KeyValueIcon} from "@/Structs/KeyValueIcon";
 import IsMvp from "@/components/Monster/MonsterStatus/IsMvp.vue";
+import {PrimaryStats} from "@/Structs/MonsterApi";
+import MonsterPrimaryAttribute from "@/components/Monster/MonsterStatus/MonsterPrimaryAttribute.vue";
 
 export default defineComponent({
-  components: {IsMvp, MonsterSizeLevelRace},
+  components: {MonsterPrimaryAttribute, IsMvp, MonsterSizeLevelRace},
   props: {
+    attributes: {
+      type: Object as PropType<PrimaryStats>,
+      required: true
+    },
     mvp: Boolean,
     level: Number,
     race: String,
@@ -69,12 +73,10 @@ export default defineComponent({
 }
 
 .wrapper-monster-status {
-  border-radius: 10px;
-  position: relative;
   background-color: #8D95D7;
   height: 200px;
   margin-bottom: 15px;
-
+  padding: 15px 0 0 15px;
 
 }
 
@@ -84,39 +86,29 @@ export default defineComponent({
   height: 70px;
   width: 430px;
   padding: 0;
-  margin: 0 5px;
-}
-
-
-.level-race-size > li {
-  margin: 15px 10px;
+  margin: 0;
 }
 
 .level-race-size-items {
+  margin: 0;
   background-color: #6C6C95;
   display: flex;
-  gap: 15px;
   height: 70px;
-  width: 105px;
+  width: 125px;
 }
 
 .level-race-size-items:nth-child(2) {
   width: 150px;
 }
 
-.mvp-attribute {
-  display: flex;
-  height: 100px;
-  width: 430px;
-  padding-top: 10px;
-
-  /*background-color: aqua;*/
-}
-
 .attributes {
-  height: 100%;
-  width: 260px;
-  background-color: gold;
+  display: flex;
+  height: 93px;
+  width: 430px;
+  margin: 10px 0 0 0;
+
 }
+
+
 
 </style>
