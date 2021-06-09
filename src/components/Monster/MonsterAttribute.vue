@@ -8,22 +8,39 @@
   </div>
 </template>
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, PropType} from "vue";
 import {GenericKeyValue} from "@/Structs/GenericKeyValue";
 import MonsterAttributeItems from "@/components/Monster/MonsterAttribute/MonsterAttributeItems.vue";
+import {SecondaryStats} from "@/Structs/MonsterApi";
+import {IMonsterAttack} from "@/Structs/IMonsterAttack";
+import {IMonsterDefense} from "@/Structs/IMonsterDefense";
 
 export default defineComponent({
   components: {MonsterAttributeItems},
+  props: {
+    attack: {
+      type: Object as PropType<IMonsterAttack>,
+      required: true
+    },
+    defense: {
+      type: Object as PropType<IMonsterDefense>,
+      required: true
+    },
+    attributes: {
+      type: Object as PropType<SecondaryStats>,
+      required: true
+    }
+  },
   data() {
     return {
-      "atq": "1111-2222",
-      "atqm": "1111-2222",
-      "def": "123",
-      "mdef": "123",
-      "health": "2502000",
-      "aspd": "1.75",
-      "flee": "574",
-      "hit": "512",
+      "atq": this.attack.physical,
+      "atqm": this.attack.magic,
+      "def": this.defense.physical,
+      "mdef": this.defense.magic,
+      "health": String(this.attributes.hp),
+      "aspd": String(this.attributes.attackSpeed),
+      "flee": String(this.attributes.flee),
+      "hit": String(this.attributes.hit),
     }
   },
   methods: {
@@ -43,7 +60,7 @@ export default defineComponent({
         },
         {
           "key": "MDEF",
-          "value": this.atq
+          "value": this.mdef
         },
         {
           "key": "HP",
@@ -64,11 +81,9 @@ export default defineComponent({
       ] as GenericKeyValue[]
     },
   },
-  props: {},
 })
 </script>
 <style scoped>
-
 
 
 .attributes-items {

@@ -7,7 +7,7 @@
     </div>
     <div class="monster-attributes">
       <MonsterStatus :level="monster.level" :race="monster.race" :size="monster.size"/>
-      <MonsterAttribute/>
+      <MonsterAttribute :attributes="monster.secondaryStats" :attack="getAttack()" :defense="getDefense()"/>
     </div>
     <div class="monster-element">
       <MonsterElement/>
@@ -33,17 +33,32 @@ import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMob
 import MonsterStatus from "@/components/Monster/MonsterStatus.vue";
 import {MonsterRequestOpcional, useMonsterStore} from "@/stores/MonsterStore";
 import {mapStores} from 'pinia';
+import {IMonsterAttack} from "@/Structs/IMonsterAttack";
+import {IMonsterDefense} from "@/Structs/IMonsterDefense";
 
 export default defineComponent({
 
   components: {MonsterStatus, MonsterItemMobMap, MonsterExperience, MonsterElement, MonsterAttribute, MonsterId},
   data() {
     return {
-      monster: {} as MonsterRequestOpcional
+      monster: {} as MonsterRequestOpcional,
     }
   },
 
-  methods: {},
+  methods: {
+    getAttack(): IMonsterAttack {
+      return {
+        physical: this.monster.physicalAttack,
+        magic: this.monster.magicAttack
+      } as IMonsterAttack
+    },
+    getDefense(): IMonsterDefense {
+      return {
+        physical: this.monster.physicalDefense,
+        magic: this.monster.magicDefense
+      } as IMonsterDefense
+    }
+  },
   created() {
     const monsterId = Number(this.$route.params.id);
     this.monsterStore.fetchMonsterById(monsterId).then(() => {
