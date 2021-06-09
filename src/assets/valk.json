@@ -1,11 +1,11 @@
 {
-  "id": 2109,
+  "id": 1751,
   "name": "Valkyrie Randgris",
-  "dbName": "E_RANDGRIS",
+  "DatabaseName": "RANDGRIS",
   "level": 141,
   "health": 3205000,
   "size": 2,
-  "gifUrl": "https://static.ragnaplace.com/db/npc/gif/2109.gif",
+  "gifUrl": "https://static.ragnaplace.com/db/npc/gif/1751.gif",
   "isMvp": true,
   "scale": "large",
   "physicalAttack": "6211-9148",
@@ -28,8 +28,8 @@
     "undead": 175
   },
   "experience": {
-    "base": 1306,
-    "job": 1105,
+    "base": 1300000,
+    "job": 1210000,
     "mvp": 0
   },
   "primaryStats": {
@@ -48,11 +48,70 @@
     "attackSpeed": 576,
     "attackRange": 3
   },
-  "locations": [],
+  "locations": [
+    {
+      "locationName": "Santuário de Odin",
+      "mapUrl": "https://www.divine-pride.net/img/map/original/odin_tem03",
+      "mapCleanUrl": "https://www.divine-pride.net/img/map/raw/odin_tem03",
+      "type": "Interior",
+      "name": "odin_tem03",
+      "quantity": 1,
+      "respawnTime": 28800000
+    },
+    {
+      "locationName": "Torre Sem Fim",
+      "mapUrl": "https://www.divine-pride.net/img/map/original/4@tower",
+      "mapCleanUrl": "https://www.divine-pride.net/img/map/raw/4@tower",
+      "type": "[Instância] Torre sem Fim",
+      "name": "4@tower",
+      "quantity": 1,
+      "respawnTime": 0
+    }
+  ],
   "monsterDrops": [
     {
+      "itemId": 2357,
+      "monsterId": 1751,
+      "dropRate": 300,
+      "name": "Armadura das Valquírias [1]",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2357.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/2357.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2357.png",
+      "itemType": "Armor"
+    },
+    {
+      "itemId": 2524,
+      "monsterId": 1751,
+      "dropRate": 1000,
+      "name": "Manto das Valquírias [1]",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2524.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/2524.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2524.png",
+      "itemType": "Armor"
+    },
+    {
+      "itemId": 2421,
+      "monsterId": 1751,
+      "dropRate": 1000,
+      "name": "Sapatos das Valquírias [1]",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2421.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/2421.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2421.png",
+      "itemType": "Armor"
+    },
+    {
+      "itemId": 2229,
+      "monsterId": 1751,
+      "dropRate": 3000,
+      "name": "Elmo [1]",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2229.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/2229.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2229.png",
+      "itemType": "Armor"
+    },
+    {
       "itemId": 4407,
-      "monsterId": 2109,
+      "monsterId": 1751,
       "dropRate": 1,
       "name": "Carta Valkyrie Randgris",
       "smallImageUrl": "https://static.ragnaplace.com/bro/item/4407.png",
@@ -61,80 +120,40 @@
       "itemType": "Card"
     },
     {
-      "itemId": 12539,
-      "monsterId": 2109,
-      "dropRate": 100,
-      "name": "Caixa Convidativa",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/12539.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/12539.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/12539.png",
-      "itemType": "Consumable"
-    },
-    {
-      "itemId": 7024,
-      "monsterId": 2109,
-      "dropRate": 1250,
-      "name": "Lâmina Ensanguentada",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/7024.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/7024.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/7024.png",
-      "itemType": "Etc."
-    },
-    {
-      "itemId": 2229,
-      "monsterId": 2109,
-      "dropRate": 2500,
-      "name": "Elmo [1]",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2229.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/2229.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2229.png",
-      "itemType": "Armor"
-    },
-    {
-      "itemId": 2421,
-      "monsterId": 2109,
-      "dropRate": 1500,
-      "name": "Sapatos das Valquírias [1]",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2421.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/2421.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2421.png",
-      "itemType": "Armor"
-    },
-    {
-      "itemId": 2524,
-      "monsterId": 2109,
-      "dropRate": 1500,
-      "name": "Manto das Valquírias [1]",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2524.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/2524.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2524.png",
-      "itemType": "Armor"
-    },
-    {
-      "itemId": 2357,
-      "monsterId": 2109,
-      "dropRate": 800,
-      "name": "Armadura das Valquírias [1]",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2357.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/2357.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2357.png",
-      "itemType": "Armor"
-    },
-    {
       "itemId": 7510,
-      "monsterId": 2109,
-      "dropRate": 2500,
+      "monsterId": 1751,
+      "dropRate": 3000,
       "name": "Flor de Valhalla",
       "smallImageUrl": "https://static.ragnaplace.com/bro/item/7510.png",
       "imageUrl": "https://static.ragnaplace.com/bro/collection/7510.png",
       "cardImageUrl": "https://static.ragnaplace.com/bro/card/7510.png",
+      "itemType": "Etc."
+    },
+    {
+      "itemId": 512,
+      "monsterId": 1751,
+      "dropRate": 0,
+      "name": "Maçã",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/512.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/512.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/512.png",
+      "itemType": "Consumable"
+    },
+    {
+      "itemId": 7024,
+      "monsterId": 1751,
+      "dropRate": 1500,
+      "name": "Lâmina Ensanguentada",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/7024.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/7024.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/7024.png",
       "itemType": "Etc."
     }
   ],
   "monsterMvpDrops": [
     {
       "itemId": 4407,
-      "monsterId": 2109,
+      "monsterId": 1751,
       "dropRate": 1,
       "name": "Carta Valkyrie Randgris",
       "smallImageUrl": "https://static.ragnaplace.com/bro/item/4407.png",
@@ -143,29 +162,19 @@
       "itemType": "Card"
     },
     {
-      "itemId": 12539,
-      "monsterId": 2109,
-      "dropRate": 100,
-      "name": "Caixa Convidativa",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/12539.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/12539.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/12539.png",
-      "itemType": "Consumable"
-    },
-    {
-      "itemId": 7024,
-      "monsterId": 2109,
-      "dropRate": 1250,
-      "name": "Lâmina Ensanguentada",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/7024.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/7024.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/7024.png",
+      "itemId": 7510,
+      "monsterId": 1751,
+      "dropRate": 3000,
+      "name": "Flor de Valhalla",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/7510.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/7510.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/7510.png",
       "itemType": "Etc."
     },
     {
       "itemId": 2357,
-      "monsterId": 2109,
-      "dropRate": 800,
+      "monsterId": 1751,
+      "dropRate": 300,
       "name": "Armadura das Valquírias [1]",
       "smallImageUrl": "https://static.ragnaplace.com/bro/item/2357.png",
       "imageUrl": "https://static.ragnaplace.com/bro/collection/2357.png",
@@ -173,9 +182,19 @@
       "itemType": "Armor"
     },
     {
+      "itemId": 2524,
+      "monsterId": 1751,
+      "dropRate": 1000,
+      "name": "Manto das Valquírias [1]",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2524.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/2524.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2524.png",
+      "itemType": "Armor"
+    },
+    {
       "itemId": 2421,
-      "monsterId": 2109,
-      "dropRate": 1500,
+      "monsterId": 1751,
+      "dropRate": 1000,
       "name": "Sapatos das Valquírias [1]",
       "smallImageUrl": "https://static.ragnaplace.com/bro/item/2421.png",
       "imageUrl": "https://static.ragnaplace.com/bro/collection/2421.png",
@@ -184,8 +203,8 @@
     },
     {
       "itemId": 2229,
-      "monsterId": 2109,
-      "dropRate": 2500,
+      "monsterId": 1751,
+      "dropRate": 3000,
       "name": "Elmo [1]",
       "smallImageUrl": "https://static.ragnaplace.com/bro/item/2229.png",
       "imageUrl": "https://static.ragnaplace.com/bro/collection/2229.png",
@@ -193,24 +212,24 @@
       "itemType": "Armor"
     },
     {
-      "itemId": 2524,
-      "monsterId": 2109,
+      "itemId": 7024,
+      "monsterId": 1751,
       "dropRate": 1500,
-      "name": "Manto das Valquírias [1]",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/2524.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/2524.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/2524.png",
-      "itemType": "Armor"
+      "name": "Lâmina Ensanguentada",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/7024.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/7024.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/7024.png",
+      "itemType": "Etc."
     },
     {
-      "itemId": 7510,
-      "monsterId": 2109,
-      "dropRate": 2500,
-      "name": "Flor de Valhalla",
-      "smallImageUrl": "https://static.ragnaplace.com/bro/item/7510.png",
-      "imageUrl": "https://static.ragnaplace.com/bro/collection/7510.png",
-      "cardImageUrl": "https://static.ragnaplace.com/bro/card/7510.png",
-      "itemType": "Etc."
+      "itemId": 512,
+      "monsterId": 1751,
+      "dropRate": 0,
+      "name": "Maçã",
+      "smallImageUrl": "https://static.ragnaplace.com/bro/item/512.png",
+      "imageUrl": "https://static.ragnaplace.com/bro/collection/512.png",
+      "cardImageUrl": "https://static.ragnaplace.com/bro/card/512.png",
+      "itemType": "Consumable"
     }
   ]
 }
