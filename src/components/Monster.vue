@@ -3,11 +3,11 @@
 
   <div id="monster-wrapper">
     <div class="monster-gif">
-      <MonsterId :identify="monster.id" :monsterName="monster.name" :gifImage="monster.gifUrl"/>
+      <MonsterId/>
     </div>
     <div class="monster-attributes">
-      <MonsterStatus :monsterAttributes="monster.primaryStats" :mvp="monster.isMvp" :level="monster.level" :race="monster.race" :size="monster.size"/>
-      <MonsterAttribute :monsterAttributes="monster.secondaryStats" :attack="getAttack()" :defense="getDefense()"/>
+      <MonsterStatus/>
+      <MonsterAttribute/>
     </div>
     <div class="monster-element">
       <MonsterElement/>
@@ -31,17 +31,12 @@ import MonsterElement from "@/components/Monster/MonsterElement.vue";
 import MonsterExperience from "@/components/Monster/MonsterExperience.vue";
 import MonsterItemMobMap from "@/components/Monster/MonsterItemMobMap.vue";
 import MonsterStatus from "@/components/Monster/MonsterStatus.vue";
-import {MonsterRequestOpcional, useMonsterStore} from "@/stores/MonsterStore";
+import {useMonsterStore} from "@/stores/MonsterStore";
 import {mapState, mapStores} from 'pinia';
 
 export default defineComponent({
 
   components: {MonsterStatus, MonsterItemMobMap, MonsterExperience, MonsterElement, MonsterAttribute, MonsterId},
-  data() {
-    return {
-      monster: {} as MonsterRequestOpcional,
-    }
-  },
   created() {
     const monsterId = Number(this.$route.params.id);
     this.monsterStore.fetchMonsterAndSetCurrentById(monsterId);
