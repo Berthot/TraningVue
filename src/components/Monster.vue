@@ -16,7 +16,7 @@
   </div>
 
   <div id="monster-supply">
-    <MonsterExperience :base="monster.experience?.base" :job="monster.experience?.job" :mvp="0"/>
+    <MonsterExperience/>
     <MonsterItemMobMap/>
   </div>
 
