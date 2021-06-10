@@ -1,21 +1,21 @@
 <template>
   <div class="wrapper-monster-status">
     <ul class="level-race-size">
-      <li class="level-race-size-items" v-for="stat in GetStatus()" :key="stat.key">
+      <li class="level-race-size-items" v-for="stat in CompStatus" :key="stat.key">
         <MonsterSizeLevelRace :keyValueIcon="stat"/>
       </li>
     </ul>
 
     <div class="attributes">
       <IsMvp :mvp="mvp"/>
-      <MonsterPrimaryAttribute :attributes="attributes"/>
+      <MonsterPrimaryAttribute :monsterAttributes="monsterAttributes"/>
     </div>
 
   </div>
 </template>
 <script lang="ts">
 import {defineComponent, PropType} from "vue";
-import MonsterSizeLevelRace from "@/components/Monster/MonsterSizeLevelRace.vue";
+import MonsterSizeLevelRace from "@/components/Monster/MonsterStatus/MonsterSizeLevelRace.vue";
 import {KeyValueIcon} from "@/Structs/KeyValueIcon";
 import IsMvp from "@/components/Monster/MonsterStatus/IsMvp.vue";
 import {PrimaryStats} from "@/Structs/MonsterApi";
@@ -24,7 +24,7 @@ import MonsterPrimaryAttribute from "@/components/Monster/MonsterStatus/MonsterP
 export default defineComponent({
   components: {MonsterPrimaryAttribute, IsMvp, MonsterSizeLevelRace},
   props: {
-    attributes: {
+    monsterAttributes: {
       type: Object as PropType<PrimaryStats>,
       required: true
     },
@@ -38,8 +38,9 @@ export default defineComponent({
       status: {} as KeyValueIcon[]
     }
   },
-  methods: {
-    GetStatus(): KeyValueIcon[] {
+
+  computed: {
+    CompStatus(): KeyValueIcon[] {
       return [
         {
           "key": "Level",

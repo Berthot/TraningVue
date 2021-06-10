@@ -6,8 +6,8 @@
       <MonsterId :identify="monster.id" :monsterName="monster.name" :gifImage="monster.gifUrl"/>
     </div>
     <div class="monster-attributes">
-      <MonsterStatus :attributes="monster.primaryStats" :mvp="monster.isMvp" :level="monster.level" :race="monster.race" :size="monster.size"/>
-      <MonsterAttribute :attributes="monster.secondaryStats" :attack="getAttack()" :defense="getDefense()"/>
+      <MonsterStatus :monsterAttributes="monster.primaryStats" :mvp="monster.isMvp" :level="monster.level" :race="monster.race" :size="monster.size"/>
+      <MonsterAttribute :monsterAttributes="monster.secondaryStats" :attack="getAttack()" :defense="getDefense()"/>
     </div>
     <div class="monster-element">
       <MonsterElement/>

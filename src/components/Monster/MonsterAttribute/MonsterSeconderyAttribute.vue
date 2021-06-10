@@ -1,7 +1,7 @@
 <template>
   <div class="monster-attribute">
     <ul class="attributes-items">
-      <li v-for="item in GetItems()" :key="item.key">
+      <li v-for="item in items" :key="item.key">
         <MonsterAttributeItems :name="item.key" :value="item.value"/>
       </li>
     </ul>
@@ -26,7 +26,7 @@ export default defineComponent({
       type: Object as PropType<IMonsterDefense>,
       required: true
     },
-    attributes: {
+    monsterAttributes: {
       type: Object as PropType<SecondaryStats>,
       required: true
     }
@@ -37,14 +37,14 @@ export default defineComponent({
       "atqm": this.attack.magic,
       "def": this.defense.physical,
       "mdef": this.defense.magic,
-      "health": String(this.attributes.hp),
-      "aspd": String(this.attributes.attackSpeed),
-      "flee": String(this.attributes.flee),
-      "hit": String(this.attributes.hit),
+      "health": this.monsterAttributes.hp + '',
+      "aspd": this.monsterAttributes.attackSpeed + '',
+      "flee": this.monsterAttributes.flee + '',
+      "hit": this.monsterAttributes.hit + '',
     }
   },
-  methods: {
-    GetItems(): GenericKeyValue[] {
+  computed: {
+    items(): GenericKeyValue[] {
       return [
         {
           "key": "ATQ",
@@ -78,7 +78,7 @@ export default defineComponent({
           "key": "HIT",
           "value": this.hit
         },
-      ] as GenericKeyValue[]
+      ];
     },
   },
 })
