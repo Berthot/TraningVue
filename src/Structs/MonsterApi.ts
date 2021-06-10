@@ -72,10 +72,10 @@ export interface MonsterMvpDrop {
 export interface MonsterRequest {
     id: number;
     name: string;
-    dbName: string;
+    DatabaseName: string;
     level: number;
     health: number;
-    size: number;
+    size: string;
     gifUrl: string;
     isMvp: boolean;
     scale: string;

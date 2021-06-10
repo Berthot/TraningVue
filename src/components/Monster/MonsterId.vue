@@ -2,25 +2,35 @@
   <div id="wrapper">
 
     <div class="monster-name">
-      <h1>{{ monsterName }}</h1>
+      <h1>{{ name }}</h1>
       <div class="monster-id">
-        <h1>{{ identify }}</h1>
+        <h1>{{ id }}</h1>
       </div>
     </div>
     <div class="monster-gif">
-      <img alt="" v-bind:src="gifImage">
+      <img alt="" v-bind:src="gif">
     </div>
   </div>
 </template>
 <script lang="ts">
 import {defineComponent} from "vue";
+import {mapState} from "pinia";
+import {useMonsterStore} from "@/stores/MonsterStore";
 
 export default defineComponent({
-  props: {
-    identify: Number,
-    monsterName: String,
-    gifImage: String
-  },
+  computed: {
+    id(): number{
+      return this.currentMonster.id || 0;
+    },
+    name(): string{
+      return this.currentMonster.name || "";
+    },
+    gif(): string{
+      return this.currentMonster.gifUrl || "";
+    },
+    // ...mapStores(useMonsterStore)
+    ...mapState(useMonsterStore, ['currentMonster'])
+  }
 
 })
 

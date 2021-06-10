@@ -2,63 +2,49 @@
   <div class="wrapper-monster-status">
     <ul class="level-race-size">
       <li class="level-race-size-items" v-for="stat in CompStatus" :key="stat.key">
-        <MonsterSizeLevelRace :keyValueIcon="stat"/>
+        <MonsterSizeLevelRace :key-value-icon="stat"/>
       </li>
     </ul>
 
     <div class="attributes">
-      <IsMvp :mvp="mvp"/>
-      <MonsterPrimaryAttribute :monsterAttributes="monsterAttributes"/>
+      <IsMvp/>
+      <MonsterPrimaryAttribute/>
     </div>
 
   </div>
 </template>
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
+import {defineComponent} from "vue";
 import MonsterSizeLevelRace from "@/components/Monster/MonsterStatus/MonsterSizeLevelRace.vue";
 import {KeyValueIcon} from "@/Structs/KeyValueIcon";
 import IsMvp from "@/components/Monster/MonsterStatus/IsMvp.vue";
-import {PrimaryStats} from "@/Structs/MonsterApi";
 import MonsterPrimaryAttribute from "@/components/Monster/MonsterStatus/MonsterPrimaryAttribute.vue";
+import {mapState} from "pinia";
+import {useMonsterStore} from "@/stores/MonsterStore";
 
 export default defineComponent({
   components: {MonsterPrimaryAttribute, IsMvp, MonsterSizeLevelRace},
-  props: {
-    monsterAttributes: {
-      type: Object as PropType<PrimaryStats>,
-      required: true
-    },
-    mvp: Boolean,
-    level: Number,
-    race: String,
-    size: String
-  },
-  data() {
-    return {
-      status: {} as KeyValueIcon[]
-    }
-  },
-
   computed: {
     CompStatus(): KeyValueIcon[] {
       return [
         {
           "key": "Level",
-          "value": this.level,
+          "value": this.currentMonster.level + '',
           "icon": require("@/assets/level-icon.png")
         },
         {
           "key": "Race",
-          "value": this.race,
+          "value": this.currentMonster.race + '',
           "icon": require("@/assets/race-icon.png")
         },
         {
           "key": "Size",
-          "value": this.size,
+          "value": this.currentMonster.size + '',
           "icon": require("@/assets/medium-icon.png")
         },
       ] as KeyValueIcon[]
-    }
+    },
+    ...mapState(useMonsterStore, ['currentMonster'])
   },
 
 })

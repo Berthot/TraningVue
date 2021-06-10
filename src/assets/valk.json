@@ -4,7 +4,7 @@
   "DatabaseName": "RANDGRIS",
   "level": 141,
   "health": 3205000,
-  "size": 2,
+  "size": "Large",
   "gifUrl": "https://static.ragnaplace.com/db/npc/gif/1751.gif",
   "isMvp": true,
   "scale": "large",
@@ -12,7 +12,7 @@
   "magicAttack": "3505-6152",
   "magicDefense": "506",
   "physicalDefense": "588",
-  "race": "peixe",
+  "race": "Peixe",
   "element": {
     "name": "holy",
     "tier": 4,

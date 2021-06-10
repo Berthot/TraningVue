@@ -28,13 +28,11 @@ import {defineComponent} from 'vue';
 import MonsterId from "@/components/Monster/MonsterId.vue";
 import MonsterAttribute from "@/components/Monster/MonsterAttribute/MonsterSeconderyAttribute.vue";
 import MonsterElement from "@/components/Monster/MonsterElement.vue";
-import MonsterExperience from "@/components/Monster/MonsterSupply/MonsterExperience.vue";
-import MonsterItemMobMap from "@/components/Monster/MonsterSupply/MonsterItemMobMap.vue";
+import MonsterExperience from "@/components/Monster/MonsterExperience.vue";
+import MonsterItemMobMap from "@/components/Monster/MonsterItemMobMap.vue";
 import MonsterStatus from "@/components/Monster/MonsterStatus.vue";
 import {MonsterRequestOpcional, useMonsterStore} from "@/stores/MonsterStore";
-import {mapStores} from 'pinia';
-import {IMonsterAttack} from "@/Structs/IMonsterAttack";
-import {IMonsterDefense} from "@/Structs/IMonsterDefense";
+import {mapState, mapStores} from 'pinia';
 
 export default defineComponent({
 
@@ -44,29 +42,13 @@ export default defineComponent({
       monster: {} as MonsterRequestOpcional,
     }
   },
-
-  methods: {
-    getAttack(): IMonsterAttack {
-      return {
-        physical: this.monster.physicalAttack,
-        magic: this.monster.magicAttack
-      } as IMonsterAttack
-    },
-    getDefense(): IMonsterDefense {
-      return {
-        physical: this.monster.physicalDefense,
-        magic: this.monster.magicDefense
-      } as IMonsterDefense
-    }
-  },
   created() {
     const monsterId = Number(this.$route.params.id);
-    this.monsterStore.fetchMonsterById(monsterId).then(() => {
-      this.monster = this.monsterStore.monsterById(monsterId);
-    })
+    this.monsterStore.fetchMonsterAndSetCurrentById(monsterId);
   },
   computed: {
-    ...mapStores(useMonsterStore)
+    ...mapStores(useMonsterStore),
+    ...mapState(useMonsterStore, ['currentMonster'])
   }
 
 });

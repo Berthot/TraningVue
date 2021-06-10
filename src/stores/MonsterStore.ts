@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import {MonsterRequest} from "@/Structs/MonsterApi";
 import axios from "axios";
-import mocJson from "@/assets/valk.json"
+// import mocJson from "@/assets/valk.json"
 import notEmpty from "@/helpers/notEmpty";
 
 // esse partial faz todos os atributos da interface serem opcionais, da para você tirar ele depois, ou definir isso direto na interface
@@ -9,13 +9,15 @@ export type MonsterRequestOpcional = Partial<MonsterRequest>;
 
 export interface MonsterState {
     monsters: MonsterRequestOpcional[];
+    currentMonster: MonsterRequestOpcional;
 }
 
 export const useMonsterStore = defineStore({
     id: 'monster',
     state(): MonsterState {
         return {
-            monsters: [mocJson]
+            currentMonster: {} as MonsterRequestOpcional,
+            monsters: []
         }
     },
     actions: {
@@ -29,7 +31,7 @@ export const useMonsterStore = defineStore({
                 const monster: MonsterRequest = response.data;
                 this.addMonster(monster);
 
-            }).catch((err) => {
+            }).catch(() => {
                 console.log("ERRO CABULOZO AO TENTAR PEGAR O MONSTRO");
             })
         },
@@ -42,11 +44,21 @@ export const useMonsterStore = defineStore({
         },
         addMonster(monster: MonsterRequest): void {
             this.monsters.push(monster);
+        },
+        setCurrentMonster(monster: MonsterRequestOpcional): void {
+            this.currentMonster = monster
+        },
+        fetchMonsterAndSetCurrentById(id: number): void{
+            this.fetchMonsterById(id).then(() => {
+                console.log(this.monsters.length)
+                const monster  = this.monsterById(id);
+                this.setCurrentMonster(monster)
+            })
         }
     },
     getters: {
         getMonsters(): MonsterRequestOpcional[] {
             return this.monsters;
-        }
+        },
     }
 });

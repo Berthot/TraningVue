@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <ul>
-      <li v-for="ex in experienceInList()" v-bind:key="ex.name" class="base-exp">
+      <li v-for="ex in experienceInList" v-bind:key="ex.name" class="base-exp">
         <div class="exp-name">
           <h1>{{ ex.name }}</h1>
         </div>
@@ -15,36 +15,36 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import {ExperienceItem} from "@/Structs/Exp";
+import {mapState} from "pinia";
+import {useMonsterStore} from "@/stores/MonsterStore";
 
 export default defineComponent({
-  props: {
-    job: Number,
-    base: Number,
-    mvp: Number,
-  },
   methods: {
-    convertToString(param: number | undefined): string{
-      if (param == 0 || param == undefined){
+    convertToString(param: number | undefined): string {
+      if (param == 0 || param == undefined) {
         return '-'
       }
       return param.toString()
     },
-    experienceInList() {
+  },
+  computed:{
+    experienceInList(): ExperienceItem[] {
       return [
         {
           "name": "BASE",
-          "value": this.convertToString(this.base) as string,
-        } as ExperienceItem,
+          "value": this.convertToString(this.currentMonster.experience?.base)
+        },
         {
           "name": "JOB",
-          "value": this.convertToString(this.job) as string,
-        } as ExperienceItem,
+          "value": this.convertToString(this.currentMonster.experience?.job)
+        },
         {
           "name": "MVP",
-          "value": this.convertToString(this.mvp) as string,
-        } as ExperienceItem
-      ] as ExperienceItem[]
-    }
+          "value": this.convertToString(this.currentMonster.experience?.mvp),
+        }
+      ];
+    },
+    ...mapState(useMonsterStore, ['currentMonster'])
   }
 
 })

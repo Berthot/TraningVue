@@ -1,8 +1,8 @@
 <template>
   <div class="primary-attribute-wrapper">
     <ul class="attribute-bar">
-      <li class="values" v-for="bar in batata" :key="bar.key">
-<!--        <p class="bar-value">{{ bar.valueString }}</p>-->
+      <li class="values" v-for="bar in primaryStatus" :key="bar.key">
+        <p class="bar-value">{{ bar.valueString }}</p>
         <p class="bar-name">{{ bar.key }}</p>
 
       </li>
@@ -11,52 +11,49 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from 'vue';
-import {PrimaryStats} from "@/Structs/MonsterApi";
+import {defineComponent} from 'vue';
 import {IGenericKeyValueValue} from "@/Structs/IGenericKeyValueValue";
+import {mapState} from "pinia";
+import {useMonsterStore} from "@/stores/MonsterStore";
 
 export default defineComponent({
-  props: {
-    monsterAttributes: Object
-  },
-  created() {
-    console.log(this.monsterAttributes)
-  },
   computed:{
-    batata(): IGenericKeyValueValue[] {
+    primaryStatus(): IGenericKeyValueValue[] {
       return [
         {
           key: "STR",
-          valueNumber: this.monsterAttributes?.str,
-          valueString: this.monsterAttributes?.str,
+          valueNumber: this.currentMonster?.primaryStats?.str || 0,
+          valueString: this.currentMonster?.primaryStats?.str.toString() + '',
         },
         {
           key: "AGI",
-          valueNumber: 90,
-          valueString: "String(this.attributes.agi)"
+          valueNumber: this.currentMonster?.primaryStats?.agi || 0,
+          valueString: this.currentMonster?.primaryStats?.agi.toString() + '',
         },
         {
           key: "VIT",
-          valueNumber: 80,
-          valueString: "String(this.attributes.vit)"
+          valueNumber: this.currentMonster?.primaryStats?.vit || 0,
+          valueString: this.currentMonster?.primaryStats?.vit.toString() + '',
         },
         {
           key: "INT",
-          valueNumber: 70,
-          valueString: "String(this.attributes.int)"
+          valueNumber: this.currentMonster?.primaryStats?.int || 0,
+          valueString: this.currentMonster?.primaryStats?.int.toString() + '',
         },
         {
           key: "DEX",
-          valueNumber: 0,
-          valueString: "String(this.attributes.dex)"
+          valueNumber: this.currentMonster?.primaryStats?.dex || 0,
+          valueString: this.currentMonster?.primaryStats?.dex.toString() + '',
         },
         {
           key: "LUK",
-          valueNumber: 30,
-          valueString: "String(this.attributes.luk)"
+          valueNumber: this.currentMonster?.primaryStats?.luk || 0,
+          valueString: this.currentMonster?.primaryStats?.luk.toString() + '',
         }
       ];
-    }
+    },
+    ...mapState(useMonsterStore, ['currentMonster'])
+
   }
 
 });

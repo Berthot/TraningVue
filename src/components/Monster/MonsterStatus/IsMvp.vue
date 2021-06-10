@@ -1,7 +1,7 @@
 <template>
 
   <div class="mvp-tag">
-        <span v-if="mvp">
+        <span v-if="currentMonster.isMvp">
             <img alt="" src="https://i.ibb.co/hgCJ27p/mvp-on.png">
         </span>
     <span v-else>
@@ -10,10 +10,12 @@
   </div>
 </template>
 <script lang="ts">
+import {mapState} from "pinia";
+import {useMonsterStore} from "@/stores/MonsterStore";
+
 export default {
-  name: 'IsMvp',
-  props: {
-    mvp: Boolean
+  computed:{
+    ...mapState(useMonsterStore, ['currentMonster'])
   }
 }
 </script>

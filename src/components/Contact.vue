@@ -37,7 +37,7 @@ export default defineComponent({
     // GetPercent(actual: number): number{
     //   return (actual * 100) / this.maxValue;
     // },
-    batata(): IGenericKeyValueValue[] {
+    primaryStatus(): IGenericKeyValueValue[] {
       return [
         {
           key: "STR",
@@ -90,33 +90,33 @@ export default defineComponent({
   /*background-color: red;*/
 }
 
-.attribute-bar {
-  /*padding: 10px 0 0 20px;*/
-  padding: 0 0 0 20px;
-  display: flex;
-  position: relative;
-  gap: 50px;
-  background-color: deeppink;
-  height: 100%;
-  /*display: block;*/
-}
+/*.attribute-bar {*/
+/*  !*padding: 10px 0 0 20px;*!*/
+/*  padding: 0 0 0 20px;*/
+/*  display: flex;*/
+/*  position: relative;*/
+/*  gap: 50px;*/
+/*  background-color: deeppink;*/
+/*  height: 100%;*/
+/*  !*display: block;*!*/
+/*}*/
 
-.bar {
-  background-color: cyan;
-  position: absolute;
-  /*display: block;*/
-  border-radius: 5px 5px 0 0;
-  width: 2rem;
-  height: 30%;
-  bottom: 0;
+/*.bar {*/
+/*  background-color: cyan;*/
+/*  position: absolute;*/
+/*  !*display: block;*!*/
+/*  border-radius: 5px 5px 0 0;*/
+/*  width: 2rem;*/
+/*  height: 30%;*/
+/*  bottom: 0;*/
 
 
-}
+/*}*/
 
-.bar-value {
-}
+/*.bar-value {*/
+/*}*/
 
-.bar-name {
-  white-space: nowrap;
-}
+/*.bar-name {*/
+/*  white-space: nowrap;*/
+/*}*/
 </style>

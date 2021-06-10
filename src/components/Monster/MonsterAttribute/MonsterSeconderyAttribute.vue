@@ -8,78 +8,52 @@
   </div>
 </template>
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
+import {defineComponent} from "vue";
 import {GenericKeyValue} from "@/Structs/GenericKeyValue";
 import MonsterAttributeItems from "@/components/Monster/MonsterAttribute/MonsterAttributeItems.vue";
-import {SecondaryStats} from "@/Structs/MonsterApi";
-import {IMonsterAttack} from "@/Structs/IMonsterAttack";
-import {IMonsterDefense} from "@/Structs/IMonsterDefense";
+import {mapState} from "pinia";
+import {useMonsterStore} from "@/stores/MonsterStore";
 
 export default defineComponent({
   components: {MonsterAttributeItems},
-  props: {
-    attack: {
-      type: Object as PropType<IMonsterAttack>,
-      required: true
-    },
-    defense: {
-      type: Object as PropType<IMonsterDefense>,
-      required: true
-    },
-    monsterAttributes: {
-      type: Object as PropType<SecondaryStats>,
-      required: true
-    }
-  },
-  data() {
-    return {
-      "atq": this.attack.physical,
-      "atqm": this.attack.magic,
-      "def": this.defense.physical,
-      "mdef": this.defense.magic,
-      "health": this.monsterAttributes.hp + '',
-      "aspd": this.monsterAttributes.attackSpeed + '',
-      "flee": this.monsterAttributes.flee + '',
-      "hit": this.monsterAttributes.hit + '',
-    }
-  },
   computed: {
     items(): GenericKeyValue[] {
       return [
         {
           "key": "ATQ",
-          "value": this.atq
+          "value": this.currentMonster.physicalAttack + ''
         },
         {
           "key": "ATQM",
-          "value": this.atqm
+          "value": this.currentMonster.magicAttack + ''
         },
         {
           "key": "DEF",
-          "value": this.def
+          "value": this.currentMonster.physicalDefense + ''
         },
         {
           "key": "MDEF",
-          "value": this.mdef
+          "value": this.currentMonster.magicDefense + ''
         },
         {
           "key": "HP",
-          "value": this.health
+          "value": this?.currentMonster?.secondaryStats?.hp.toString() + ''
         },
         {
           "key": "ASPD",
-          "value": this.aspd
+          "value": this?.currentMonster?.secondaryStats?.attackSpeed.toString() + ''
         },
         {
           "key": "FLEE",
-          "value": this.flee
+          "value": this?.currentMonster?.secondaryStats?.flee.toString() + ''
         },
         {
           "key": "HIT",
-          "value": this.hit
+          "value": this?.currentMonster?.secondaryStats?.hit.toString() + ''
         },
       ];
     },
+    ...mapState(useMonsterStore, ['currentMonster'])
   },
 })
 </script>
