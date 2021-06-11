@@ -30,13 +30,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/contact',
     name: 'Contact',
-    component: () => import(/* webpackChunkName: "MvpTimer" */ '../components/Contact.vue')
+    component: () => import(/* webpackChunkName: "Contact" */ '../components/Contact.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "NotFound" */ '../components/NotFoundComponent.vue')
+
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: routes,
 })
 
 
