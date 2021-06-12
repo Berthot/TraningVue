@@ -2,9 +2,12 @@
   <div class="primary-attribute-wrapper">
     <ul class="attribute-bar">
       <li class="values" v-for="bar in primaryStatus" :key="bar.key">
-        <p class="bar-value">{{ bar.valueString }}</p>
-        <p class="bar-name">{{ bar.key }}</p>
-
+        <div class="bar" :style="{height: GetPercent(bar.valueNumber) + '%'}">
+          <p class="bar-value">{{ bar.valueNumber + '' }}</p>
+        </div>
+        <div class="bar-name">
+          <p>{{bar.key}}</p>
+        </div>
       </li>
     </ul>
   </div>
@@ -17,7 +20,16 @@ import {mapState} from "pinia";
 import {useMonsterStore} from "@/stores/MonsterStore";
 
 export default defineComponent({
-  computed:{
+  methods: {
+    GetMaxValue(): number {
+      let values = this.primaryStatus.filter(x => x.valueNumber);
+      return Math.max.apply(0, values.map(x => x.valueNumber));
+    },
+    GetPercent(actual: number): number {
+      return (actual * 75) / this.GetMaxValue();
+    },
+  },
+  computed: {
     primaryStatus(): IGenericKeyValueValue[] {
       return [
         {
@@ -78,37 +90,41 @@ export default defineComponent({
 }
 
 .attribute-bar {
-  padding: 10px 0 0 20px;
+  border-radius: 10px;
+  /*padding: 10px 0 0 20px;*/
+  padding: 0 0 0 20px;
   display: flex;
-  gap: 20px;
-  background-color: deeppink;
+  position: relative;
+  gap: 22px;
+  background-color: var(--primary-color);
+  height: 100%;
+  /*display: block;*/
 }
 
-.values {
-  display: block;
+.values{
+  display: flex;
   flex-direction: column;
-  height: 64px;
-  width: 30px;
-  background-color: cyan;
-  border-radius: 4px 4px 0 0;
+}
 
+.bar {
+  background-color: cyan;
+  position: absolute;
+  /*display: block;*/
+  border-radius: 5px 5px 0 0;
+  width: 2rem;
+  height: 0;
+  bottom: 0;
 }
 
 .bar-value {
-  font-size: 10px;
-  font-weight: bold;
-  display: flow;
-  height: 35px;
-  width: 30px;
+  font-size: 0.7em;
   text-align: center;
+  text-justify: inter-word;
+  font-weight: bold;
 }
 
 .bar-name {
-  font-weight: bold;
-  margin-top: 29px;
+  margin-bottom: 10px;
   white-space: nowrap;
-  width: 30px;
-  height: 20px;
-  /*background-color: orange;*/
 }
 </style>

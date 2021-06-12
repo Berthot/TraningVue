@@ -1,15 +1,16 @@
 <template>
   <div class="bar-wrapper">
-<!--    <ul class="attribute-bar">-->
+    <ul class="attribute-bar">
 
-<!--      <li class="values" v-for="bar in GetAttributes()" :key="bar.key">-->
-<!--        <div class="bar" :style="{height: `${this.GetPercent(bar.valueNumber)}%`}">-->
-<!--        </div>-->
-<!--        &lt;!&ndash;        <p class="bar-value">{{ bar.valueString }}</p>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <p class="bar-name">{{ bar.key }}</p>&ndash;&gt;-->
-<!--      </li>-->
+      <li class="values" v-for="bar in primaryStatus()" :key="bar.key">
+        <div class="bar" :style="{height: GetPercent(bar.valueNumber) + '%'}">
+          <p class="bar-value">{{ bar.valueNumber + '' }}</p>
+          <p class="bar-name">{{ bar.key }}</p>
+        </div>
 
-<!--    </ul>-->
+      </li>
+
+    </ul>
   </div>
 </template>
 
@@ -26,50 +27,48 @@ export default defineComponent({
       maxValue: this.GetMaxValue()
     }
   },
-  computed:{
-
-  },
+  computed: {},
   methods: {
-    // GetMaxValue(): number {
-    //   let values = this.batata().filter(x => x.valueNumber);
-    //   return Math.max.apply(0, values.values());
-    // },
-    // GetPercent(actual: number): number{
-    //   return (actual * 100) / this.maxValue;
-    // },
+    GetMaxValue(): number {
+      let values = this.primaryStatus().filter(x => x.valueNumber);
+      return Math.max.apply(0, values.map(x=>x.valueNumber));
+    },
+    GetPercent(actual: number): number{
+      return (actual * 100) / this.maxValue;
+    },
     primaryStatus(): IGenericKeyValueValue[] {
       return [
         {
           key: "STR",
           valueNumber: 100,
-          valueString: "String(this.attributes.str)"
+          valueString: "100"
         },
         {
           key: "AGI",
           valueNumber: 90,
-          valueString: "String(this.attributes.agi)"
+          valueString: "90"
         },
-        // {
-        //   key: "VIT",
-        //   valueNumber: 80,
-        //   valueString: "String(this.attributes.vit)"
-        // },
-        // {
-        //   key: "INT",
-        //   valueNumber: 70,
-        //   valueString: "String(this.attributes.int)"
-        // },
-        // {
-        //   key: "DEX",
-        //   valueNumber: 0,
-        //   valueString: "String(this.attributes.dex)"
-        // },
-        // {
-        //   key: "LUK",
-        //   valueNumber: 30,
-        //   valueString: "String(this.attributes.luk)"
-        // }
-      ] as IGenericKeyValueValue[]
+        {
+          key: "VIT",
+          valueNumber: 80,
+          valueString: "80"
+        },
+        {
+          key: "INT",
+          valueNumber: 70,
+          valueString: "String(this.attributes.int)"
+        },
+        {
+          key: "DEX",
+          valueNumber: 0,
+          valueString: "String(this.attributes.dex)"
+        },
+        {
+          key: "LUK",
+          valueNumber: 30,
+          valueString: "String(this.attributes.luk)"
+        }
+      ];
     }
   }
 });
@@ -90,33 +89,32 @@ export default defineComponent({
   /*background-color: red;*/
 }
 
-/*.attribute-bar {*/
-/*  !*padding: 10px 0 0 20px;*!*/
-/*  padding: 0 0 0 20px;*/
-/*  display: flex;*/
-/*  position: relative;*/
-/*  gap: 50px;*/
-/*  background-color: deeppink;*/
-/*  height: 100%;*/
-/*  !*display: block;*!*/
-/*}*/
-
-/*.bar {*/
-/*  background-color: cyan;*/
-/*  position: absolute;*/
-/*  !*display: block;*!*/
-/*  border-radius: 5px 5px 0 0;*/
-/*  width: 2rem;*/
-/*  height: 30%;*/
-/*  bottom: 0;*/
+.attribute-bar {
+  /*padding: 10px 0 0 20px;*/
+  padding: 0 0 0 20px;
+  display: flex;
+  position: relative;
+  gap: 50px;
+  background-color: deeppink;
+  height: 100%;
+  /*display: block;*/
+}
 
 
-/*}*/
+.bar {
+  background-color: cyan;
+  position: absolute;
+  /*display: block;*/
+  border-radius: 5px 5px 0 0;
+  width: 2rem;
+  height: 30%;
+  bottom: 0;
+}
 
-/*.bar-value {*/
-/*}*/
+.bar-value {
+}
 
-/*.bar-name {*/
-/*  white-space: nowrap;*/
-/*}*/
+.bar-name {
+  white-space: nowrap;
+}
 </style>
