@@ -2,13 +2,16 @@
   <div class="primary-attribute-wrapper">
     <ul class="attribute-bar">
       <li class="values" v-for="bar in primaryStatus" :key="bar.key">
-        <div class="bar" :style="{height: GetPercent(bar.valueNumber) + '%'}">
-          <p class="bar-value">{{ bar.valueNumber + '' }}</p>
-        </div>
+
+        <div class="bar" :style="{height: GetPercent(bar.valueNumber) + '%'}">        </div>
         <div class="bar-name">
           <p>{{bar.key}}</p>
         </div>
+        <div class="bar-value" :style="{height: (GetBarValueHeight(bar.valueNumber)) + '%'}">
+          <p>{{ bar.valueNumber + '' }}</p>
+        </div>
       </li>
+
     </ul>
   </div>
 </template>
@@ -20,13 +23,25 @@ import {mapState} from "pinia";
 import {useMonsterStore} from "@/stores/MonsterStore";
 
 export default defineComponent({
+  data() {
+    return {
+      maxHeight: 75
+    }
+  },
   methods: {
+    GetBarValueHeight(actual: number): number{
+      const percent = this.GetPercent(actual)
+      if((this.maxHeight - 10) <= percent)
+        return percent
+      return percent + 18
+
+    },
     GetMaxValue(): number {
       let values = this.primaryStatus.filter(x => x.valueNumber);
       return Math.max.apply(0, values.map(x => x.valueNumber));
     },
     GetPercent(actual: number): number {
-      return (actual * 75) / this.GetMaxValue();
+      return (actual * this.maxHeight) / this.GetMaxValue();
     },
   },
   computed: {
@@ -107,7 +122,7 @@ export default defineComponent({
 }
 
 .bar {
-  background-color: cyan;
+  background-color: #9AD678;
   position: absolute;
   /*display: block;*/
   border-radius: 5px 5px 0 0;
@@ -116,15 +131,30 @@ export default defineComponent({
   bottom: 0;
 }
 
+
 .bar-value {
-  font-size: 0.7em;
+  width: 2rem;
+  position: absolute;
+  z-index: 1;
+  white-space: nowrap;
+  bottom: 0;
+  margin: 0;
+  font-size: 0.8em;
   text-align: center;
   text-justify: inter-word;
   font-weight: bold;
 }
 
 .bar-name {
-  margin-bottom: 10px;
+  font-weight: bold;
+
+  padding: 0;
+  margin: 0;
   white-space: nowrap;
+}
+
+.bar-name p{
+  padding: 0;
+  margin: 0;
 }
 </style>
