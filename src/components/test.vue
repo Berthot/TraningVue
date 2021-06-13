@@ -1,15 +1,29 @@
 <template>
-  <div>
+  <div class="wrapper">
 
   </div>
 </template>
 
-<script>
-export default {
-  name: "test"
-}
+<script lang="ts">
+import {defineComponent} from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      example: Number
+    }
+  },
+  mounted() {
+    return {}
+  },
+  methods: {},
+  computed: {}
+
+});
 </script>
 
 <style scoped>
 
+.wrapper {
+}
 </style>
