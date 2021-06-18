@@ -34,6 +34,11 @@ export default {
   width: 110px;
   margin: 0;
   /*background-color: red;*/
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
 
 }
 
@@ -42,9 +47,19 @@ export default {
 }
 
 .mvp-tag > span > img {
+  transition:  width 4s, height 4s, transform 5s;
   width: 110px;
   height: 100px;
   margin-left: 0;
+
+}
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 </style>

@@ -129,10 +129,13 @@ export default defineComponent({
   width: 2rem;
   height: 0;
   bottom: 0;
+  transition: height 1s;
+
 }
 
 
 .bar-value {
+  transition:  height 2s, transform 2s;
   width: 2rem;
   position: absolute;
   z-index: 1;
@@ -143,11 +146,11 @@ export default defineComponent({
   text-align: center;
   text-justify: inter-word;
   font-weight: bold;
+
 }
 
 .bar-name {
   font-weight: bold;
-
   padding: 0;
   margin: 0;
   white-space: nowrap;
