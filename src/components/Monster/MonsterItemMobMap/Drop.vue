@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img alt="" src="../assets/404.png">
+
   </div>
 </template>
 
@@ -8,6 +8,16 @@
 import {defineComponent} from 'vue';
 
 export default defineComponent({
+  data() {
+    return {
+      example: Number
+    }
+  },
+  mounted() {
+    return {}
+  },
+  methods: {},
+  computed: {}
 
 });
 </script>

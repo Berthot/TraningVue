@@ -35,7 +35,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/:catchAll(.*)',
     name: 'NotFound',
-    component: () => import(/* webpackChunkName: "NotFound" */ '../components/NotFoundComponent.vue')
+    component: () => import(/* webpackChunkName: "NotFound" */ '../components/Error/NotFoundComponent.vue')
 
   }
 ]
