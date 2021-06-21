@@ -53,6 +53,8 @@ export default defineComponent({
   margin: 0;
   padding: 0 10px;
   flex-direction: column;
+  box-shadow: 0 5px 12px .1rem rgba(31, 35, 54, 0.3);
+
 }
 
 .slr-header p {

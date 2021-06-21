@@ -59,6 +59,8 @@ export default defineComponent({
   width: 90px;
   height: 32px;
   z-index: 0;
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, .4);
+
 }
 
 .attribute-name .value-center {

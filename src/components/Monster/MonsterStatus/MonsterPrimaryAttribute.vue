@@ -102,6 +102,8 @@ export default defineComponent({
   height: 100%;
   margin: 0 0 0 0;
   /*background-color: red;*/
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.4);
+
 }
 
 .attribute-bar {

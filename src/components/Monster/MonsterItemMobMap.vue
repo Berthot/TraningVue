@@ -45,6 +45,8 @@ export default defineComponent({
   background-color: #8D95D7;
   border-radius: 10px;
   height: 11.5rem;
+  box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.3);
+
 }
 
 

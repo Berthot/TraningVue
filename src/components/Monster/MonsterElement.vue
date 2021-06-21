@@ -41,6 +41,8 @@ export default defineComponent({
   border-radius: 10px;
   height: 400px;
   width: 275px;
+  box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.3);
+
 }
 
 
@@ -50,6 +52,8 @@ export default defineComponent({
   background-color: var(--primary-color);
   height: 80%;
   width: 90%;
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.3);
+
 }
 
 .element {
@@ -61,6 +65,8 @@ export default defineComponent({
   height: 40px;
   width: 110px;
   align-content: center;
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.3);
+
 }
 
 

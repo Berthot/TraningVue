@@ -60,6 +60,7 @@ export default defineComponent({
 .wrapper {
   display: flex;
   margin-right: 15px;
+
 }
 
 ul {
@@ -77,6 +78,8 @@ li {
   margin: 0 auto 15px auto; /*top right bottom left*/
   height: 40px;
   width: 300px;
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.3);
+
 
 }
 
@@ -88,6 +91,8 @@ li {
   height: 25px;
   background-color: #AAC6DA;
   margin-left: 10px;
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.2);
+
 }
 
 
@@ -99,6 +104,8 @@ li {
   width: 100px;
   height: 25px;
   background-color: #6C6C95;
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.2);
+
 }
 
 

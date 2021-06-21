@@ -58,6 +58,8 @@ export default defineComponent({
   /*background-color: var(--test-color);*/
   align-items: center;
   display: flex;
+  box-shadow: 0 5px 12px .1rem rgba(0, 0, 0, 0.3);
+
 }
 
 .monster-id {
@@ -67,6 +69,8 @@ export default defineComponent({
   background-color: #6C6C95;
   right: 8px;
   margin-right: 15px;
+  box-shadow: 0 3px 12px .1rem rgba(0, 0, 0, 0.2);
+
 
 }
 

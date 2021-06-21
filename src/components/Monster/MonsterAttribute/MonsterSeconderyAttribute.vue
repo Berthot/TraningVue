@@ -97,6 +97,8 @@ li {
   margin: 0 15px 15px;
   z-index: 10;
   padding: 15px 17px;
+  box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.4);
+
 
 }
 

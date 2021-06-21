@@ -59,6 +59,8 @@ export default defineComponent({
   background-color: var(--secondery-color);
   overflow: scroll;
   overflow-x: hidden;
+  box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.3);
+
 
 }
 
@@ -103,6 +105,8 @@ export default defineComponent({
   width: 9.5rem;
   height: 6.2rem;
   z-index: 0;
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.2);
+
 
 }
 
@@ -111,6 +115,8 @@ export default defineComponent({
   margin-left: .5rem;
   height: 4rem;
   width: 3rem;
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.3);
+
 }
 
 .infos {
@@ -122,6 +128,8 @@ export default defineComponent({
   flex-direction: column;
   justify-content: space-between;
   gap: .6rem;
+
+
 }
 
 .infos p {
@@ -137,17 +145,23 @@ export default defineComponent({
   width: 100%;
   height: 1.5rem;
   background-color: var(--tertiary-color);
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.3);
+
 }
 
 .drop-rate {
   width: 100%;
   height: 1.5rem;
   background-color: var(--tertiary-color);
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.3);
+
 }
 
 .item-type {
   width: 100%;
   height: 1.5rem;
   background-color: var(--tertiary-color);
+  box-shadow: 0 5px 12px 0 rgba(31, 35, 54, 0.3);
+
 }
 </style>

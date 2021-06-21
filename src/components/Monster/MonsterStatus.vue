@@ -64,6 +64,8 @@ export default defineComponent({
   height: 200px;
   margin-bottom: 15px;
   padding: 15px 0 0 15px;
+  box-shadow: 0 5px 12px .1rem rgba(0, 0, 0, 0.3);
+
 
 }
 
