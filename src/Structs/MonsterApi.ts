@@ -52,6 +52,7 @@ export interface MonsterDrop {
     monsterId: number;
     dropRate: number;
     name: string;
+    price: string;
     smallImageUrl: string;
     imageUrl: string;
     cardImageUrl: string;
