@@ -48,6 +48,8 @@ export default defineComponent({
   height: 22px;
   border-bottom: 10px;
   z-index: 1;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+
 }
 
 .attribute-value {
