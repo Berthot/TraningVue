@@ -158,6 +158,8 @@ p {
   padding-left: .2rem;
   padding-right: .2rem;
   white-space: nowrap;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
 
 }
 
@@ -178,7 +180,9 @@ p {
   /*margin-left: 45%;*/
   margin: .3rem 0 0 0; /*top, right, bottom, left */
   background-color: yellow;
-  transition: width 1s
+  transition: width 1s;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+
 }
 
 
