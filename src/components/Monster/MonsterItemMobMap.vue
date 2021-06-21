@@ -1,30 +1,40 @@
 <template>
   <div class="drop-location-wrapper">
     <DropLocationNavBar/>
-    <div class="items">
-      {{  actualValue }}
-    </div>
-    <button ></button>
+    <Drop v-if="IsDrop"/>
+    <DropMvp v-if="IsMvpDrop"/>
+    <DropLocation v-if="IsLocation"/>
+
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import {mapState} from "pinia";
+import {mapState, mapStores} from "pinia";
 import {useMonsterStore} from "@/stores/MonsterStore";
 import DropLocationNavBar from "@/components/Monster/MonsterItemMobMap/DropLocationNavBar.vue";
 import {useDropLocationStore} from "@/stores/DropLocationStore";
+import Drop from "@/components/Monster/MonsterItemMobMap/Items/Drop.vue";
+import DropMvp from "@/components/Monster/MonsterItemMobMap/Items/DropMvp.vue";
+import DropLocation from "@/components/Monster/MonsterItemMobMap/Items/DropLocation.vue";
 
 export default defineComponent({
-  components: {DropLocationNavBar},
-  data() {
-    return {
-      ActualNavBar: "Drop" as string,
-    }
-  },
+  components: {DropLocationNavBar, Drop, DropMvp, DropLocation},
+  methods: {},
   computed: {
+
     ...mapState(useMonsterStore, ['currentMonster']),
-    ...mapState(useDropLocationStore, ['actualValue'])
+    ...mapState(useDropLocationStore, ['actualValue']),
+    ...mapStores(useDropLocationStore),
+    IsDrop(): boolean {
+      return this.dropLocationStore.actualValue === 'Drop';
+    },
+    IsLocation(): boolean {
+      return this.dropLocationStore.actualValue === 'Location';
+    },
+    IsMvpDrop(): boolean {
+      return this.dropLocationStore.actualValue === 'MvpDrop';
+    },
   },
 
 });
@@ -32,17 +42,11 @@ export default defineComponent({
 <style scoped>
 
 .drop-location-wrapper {
+  background-color: #8D95D7;
   border-radius: 10px;
-  width: 750px;
-  height: 200px;
-  background-color: blueviolet;
+  height: 11.5rem;
 }
 
-.items {
-  background-color: red;
-  height: 100%;
-  width: 100%;
-}
 
 .drop-location-wrapper {
   width: 100%;

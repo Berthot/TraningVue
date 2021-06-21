@@ -1,8 +1,12 @@
 <template>
   <nav class="sidebar-nav">
-    <ul v-for="itemBar in SideBarItems" :key="itemBar.name" class="sidebar-array">
+    <ul v-for="itemBar in GetSideBarItems" :key="itemBar.name" class="sidebar-array">
       <li class="sidebar-item" >
-        <button @click="SetActualNavBar(itemBar.name)" class="sidebar-button" v-if="itemBar.enable"> {{ itemBar.name }}</button>
+        <button
+            @click="SetActualNavBar(itemBar.name)"
+            class="sidebar-button" v-if="itemBar.enable">
+          {{ itemBar.name }}
+        </button>
       </li>
     </ul>
   </nav>
@@ -21,33 +25,28 @@ export default defineComponent({
   props:{
     ActualNavBar: String
   },
-  data() {
-    return {
-      SideBarItems: [
-        {
-          name: "Drop",
-          enable: true
-        },
-        {
-          name: "Location",
-          enable: true
-        },
-        {
-          name: "MvpDrop",
-          enable: true
-        }
-      ] as IDropLocationNavBar[]
-    }
-  },
-  mounted() {
-    return {}
-  },
   methods: {
     SetActualNavBar(newValue: string): void{
       this.dropLocationStore.addNewValue(newValue);
     }
   },
   computed: {
+    GetSideBarItems(): IDropLocationNavBar[]{
+      return [
+        {
+          name: "Drop",
+          enable: true
+        },
+        {
+          name: "Location",
+          enable: this.currentMonster?.locations?.length !== 0 || false
+        },
+        {
+          name: "MvpDrop",
+          enable: this.currentMonster?.monsterMvpDrops?.length !== 0 || false
+        }
+      ] as IDropLocationNavBar[]
+    },
     ...mapStores(useDropLocationStore),
     ...mapState(useMonsterStore, ['currentMonster'])
   },
@@ -81,7 +80,8 @@ export default defineComponent({
 }
 
 .sidebar-nav {
-  background-color: gray;
+  border-radius: 4px 4px 0 0;
+  background-color: var(--primary-color);
   height: 2.5rem;
   padding-bottom: 2px;
   width: 100%;
